@@ -9,7 +9,7 @@ Calculo de la deforestación a partir de los datos de cobertura y uso del suelo 
 """
 Agrupación de coberturas en tres clases temáticas con base en la leyenda de MapBiomas:
 
-3 -> Bosque
+3 -> Bosque n\
 6 -> Bosque inundable
 9 -> Sivicultura
 11 -> Formación natural no forestal inindable
