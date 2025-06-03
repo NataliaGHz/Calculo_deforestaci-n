@@ -1,4 +1,4 @@
-# Calculo_deforestacion
+# Calculo_transiciones_cobertura
 Calculo de la deforestación a partir de los datos de cobertura y uso del suelo en formato raster provenientes del proyecto MapBioma Colombia
 
 *DEFINIR FUNCIONES EN UN PY INDEPENDIENTE
