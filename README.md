@@ -19,6 +19,11 @@ Identificar las transiciones de las coberturas y el uso del suelo en la región 
 | Resguardos indígenas                   | [Fuente no especificada] | Información sobre los resguardos indígenas en la región.  |
 
 
+La adquisición y preparación de los datos para este proyecto se basa en la integración de varias capas espaciales provenientes de diferentes fuentes, todas ellas alineadas en el mismo sistema de referencia de coordenadas (CRS) WGS84 (EPSG:4326) para asegurar la coherencia y precisión en los análisis espaciales. 
+
+Los datos de MapBiomas Colombia (1985-2023), proporcionados a través de Google Earth Engine (GEE), incluyen información detallada sobre la cobertura y uso del suelo en la región amazónica, permitiendo un análisis temporal de las dinámicas de cambio en la cobertura vegetal. Para delimitar geográficamente el área de estudio, se incorporan los límites administrativos de la región amazónica, que proporcionan el contexto de los departamentos dentro de esta región, extraídos del Sistema de Información sobre los Recursos Naturales y la Biodiversidad (SINCHI). 
+
+Además, se añaden capas de Parques Nacionales Naturales (PNN) y resguardos indígenas, que permiten identificar áreas protegidas y territorios de pueblos indígenas, lo cual es fundamental para evaluar los procesos de deforestación y regeneración dentro de estas zonas específicas. Todo el conjunto de datos se transforma y ajusta al CRS WGS84 (EPSG:4326), garantizando que todas las capas puedan integrarse adecuadamente para realizar análisis espaciales y obtener resultados coherentes y comparables.
 
 
 Instalar API de GGE
