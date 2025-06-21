@@ -1,9 +1,24 @@
-# Calculo_transiciones_cobertura
-Calculo de la deforestación a partir de los datos de cobertura y uso del suelo en formato raster provenientes del proyecto MapBioma Colombia
+# Calculo transiciones cobertura
+
+## Objetivo
+Identificar las transiciones de las coberturas y el uso del suelo en la región amazónica colombiana, específicamente en lo que respecta a procesos de deforestación, regeneración y degradación. Para ello, se implementará un enfoque de procesamiento espacial utilizando técnicas avanzadas de programación, lo que permitirá comprender la evolución temporal y espacial de estos fenómenos.
 
 *DEFINIR FUNCIONES EN UN PY INDEPENDIENTE
 
-# 1. Instalar API de GGE
+# 1. Metología del proyecto
+| **Elemento**                           | **Fuente de Datos**     | **Descripción/Notas**                                       |
+|----------------------------------------|-------------------------|-------------------------------------------------------------|
+| Mapas de cobertura y uso del suelo (1985 - 2023) | MapBiomas Colombia       | Datos de coberturas y uso del suelo a lo largo de los años. |
+| Límites administrativos de la región amazónica | GEE                     | Límites geográficos administrativos para la región amazónica. |
+| Región amazónica                       | MapBiomas               | Datos sobre la región amazónica, incluyendo su evolución en el tiempo. |
+| Departamentos                          | SINCHI                  | Información geoespacial de los departamentos dentro de la región. |
+| Parques Nacionales Naturales           | PNN                     | Límites y áreas protegidas bajo la categoría de parques nacionales. |
+| Resguardos indígenas                   | [Fuente no especificada] | Información sobre los resguardos indígenas en la región.  |
+
+
+
+
+Instalar API de GGE
 # 2. Llamar el asset donde se encuentran almacenadas las imágenes de cobertura (1985 - 2023)
 # 3. Clasificación temática (Bosque=1, Cobertura_Natural=2, Uso=3)
 """
