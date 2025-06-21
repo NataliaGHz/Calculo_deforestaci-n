@@ -12,21 +12,22 @@ Identificar las transiciones de las coberturas y el uso del suelo en la región 
 | **DATOS**                           | **Fuente de Datos**     | **Descripción/Notas**                                       |
 |----------------------------------------|-------------------------|-------------------------------------------------------------|
 | Mapas de cobertura y uso del suelo (1985 - 2023) | MapBiomas Colombia       | Datos de coberturas y uso del suelo disponibles en Google Earth Engine |
-| Departamentos | IGAC                     | Límites geográficos administrativos para la región amazónica descargados desde RAISG. La división político-administrativa de Colombia. |
+| Departamentos | IGAC                     | La división político-administrativa de Colombia. |
 | Región amazónica                       | MapBiomas               | Datos sobre la región amazónica, incluyendo su evolución en el tiempo. |
 | Parques Nacionales Naturales           | PNN                     | Límites y áreas protegidas bajo la categoría de parques nacionales. |
 | Resguardos indígenas                   | Agencia Nacional de Tierras | Información sobre los resguardos indígenas en la región.  |
 
 
-La adquisición y preparación de los datos para este proyecto se basa en la integración de varias capas espaciales provenientes de diferentes fuentes, todas ellas alineadas en el mismo sistema de referencia de coordenadas (CRS) WGS84 (EPSG:9377) para asegurar la coherencia y precisión en los análisis espaciales. 
+La adquisición y preparación de los datos para este proyecto integra varias capas espaciales de distintas fuentes, todas alineadas en el sistema de referencia WGS84 (EPSG:9377) para asegurar precisión en los análisis espaciales.
 
-Los datos de MapBiomas Colombia (1985-2023), proporcionados a través de Google Earth Engine (GEE), incluyen información detallada sobre la cobertura y uso del suelo en la región amazónica, permitiendo un análisis temporal de las dinámicas de cambio en la cobertura vegetal. Para delimitar geográficamente el área de estudio, se incorporan los límites administrativos de la región amazónica, que proporcionan el contexto de los departamentos dentro de esta región, extraídos del Sistema de Información sobre los Recursos Naturales y la Biodiversidad (SINCHI). 
+Los datos de MapBiomas Colombia (1985-2023), extraídos de Google Earth Engine (GEE), proporcionan información sobre la cobertura y uso del suelo en la región amazónica, permitiendo el análisis temporal de sus cambios. Para delimitar el área de estudio, se incorporan los límites administrativos de la región amazónica del Sistema de Información sobre los Recursos Naturales y la Biodiversidad (SINCHI), junto con capas de Parques Nacionales Naturales (PNN) y resguardos indígenas, fundamentales para evaluar los procesos de deforestación y regeneración.
 
-Además, se añaden capas de Parques Nacionales Naturales (PNN) y resguardos indígenas, que permiten identificar áreas protegidas y territorios de pueblos indígenas, lo cual es fundamental para evaluar los procesos de deforestación y regeneración dentro de estas zonas específicas. Todo el conjunto de datos se transforma y ajusta al el sistema de proyección MAGNA-SIRGAS Origen Nacional  (EPSG:9377), garantizando que todas las capas puedan integrarse adecuadamente para realizar análisis espaciales y obtener resultados coherentes y comparables.
+Además, se extraerá la división político-administrativa de Colombia desde las capas del Instituto Geográfico Agustín Codazzi (IGAC). Todos los datos se transforman y ajustan al sistema de proyección MAGNA-SIRGAS Origen Nacional (EPSG:9377), asegurando la integración adecuada de las capas para análisis espaciales coherentes y comparables.
 
 Instalar API de GGE
 # 2. Análisis de Atributos y Filtrado
-Llamar el asset donde se encuentran almacenadas las imágenes de cobertura (1985 - 2023)
+Seleccionar las coberturas del suelo y sus cambios anuales entre 1985 y 2023, accediendo al asset de imágenes proporcionado por MapBiomas Colombia mediante Google Earth Engine (GEE).
+
 # 3. Clasificación temática (Bosque=1, Cobertura_Natural=2, Uso=3)
 """
 Agrupación de coberturas en tres clases temáticas con base en la leyenda de MapBiomas:
