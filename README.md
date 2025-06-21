@@ -13,9 +13,9 @@ Identificar las transiciones de las coberturas y el uso del suelo en la región 
 |----------------------------------------|-------------------------|-------------------------------------------------------------|
 | Mapas de cobertura y uso del suelo (1985 - 2023) | MapBiomas Colombia       | Datos de coberturas y uso del suelo disponibles en Google Earth Engine |
 | Departamentos | IGAC                     | La división político-administrativa de Colombia. |
-| Región amazónica                       | MapBiomas               | Limite de la cuenca amazónica |
+| Región amazónica                       | MapBiomas               | Límite de la cuenca amazónica |
 | Parques Nacionales Naturales           | PNN                     | Límites y áreas protegidas bajo la categoría de parques nacionales. |
-| Resguardos indígenas                   | Agencia Nacional de Tierras | Información sobre los resguardos indígenas en la región.  |
+| Resguardos indígenas                   | Agencia Nacional de Tierras | Capa de los resguardos indígenas de Colombia  |
 
 
 La adquisición y preparación de los datos para este proyecto integra varias capas espaciales de distintas fuentes, todas alineadas en el sistema de referencia WGS84 (EPSG:9377) para asegurar precisión en los análisis espaciales.
