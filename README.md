@@ -12,9 +12,8 @@ Identificar las transiciones de las coberturas y el uso del suelo en la región 
 | **DATOS**                           | **Fuente de Datos**     | **Descripción/Notas**                                       |
 |----------------------------------------|-------------------------|-------------------------------------------------------------|
 | Mapas de cobertura y uso del suelo (1985 - 2023) | MapBiomas Colombia       | Datos de coberturas y uso del suelo disponibles en Google Earth Engine |
-| Límites administrativos de la región amazónica | GEE                     | Límites geográficos administrativos para la región amazónica descargados desde RAISG. |
+| Departamentos | IGAC                     | Límites geográficos administrativos para la región amazónica descargados desde RAISG. La división político-administrativa de Colombia. |
 | Región amazónica                       | MapBiomas               | Datos sobre la región amazónica, incluyendo su evolución en el tiempo. |
-| Departamentos                          | SINCHI                  | Información geoespacial de los departamentos dentro de la región, La división político-administrativa de Colombia, según el IGAC |
 | Parques Nacionales Naturales           | PNN                     | Límites y áreas protegidas bajo la categoría de parques nacionales. |
 | Resguardos indígenas                   | [Fuente no especificada] | Información sobre los resguardos indígenas en la región.  |
 
