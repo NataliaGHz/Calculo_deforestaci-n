@@ -14,7 +14,7 @@ Identificar las transiciones de las coberturas y el uso del suelo en la región 
 | Mapas de cobertura y uso del suelo (1985 - 2023) | MapBiomas Colombia       | Datos de coberturas y uso del suelo disponibles en Google Earth Engine |
 | Límites administrativos de la región amazónica | GEE                     | Límites geográficos administrativos para la región amazónica descargados desde RAISG. |
 | Región amazónica                       | MapBiomas               | Datos sobre la región amazónica, incluyendo su evolución en el tiempo. |
-| Departamentos                          | SINCHI                  | Información geoespacial de los departamentos dentro de la región. |
+| Departamentos                          | SINCHI                  | Información geoespacial de los departamentos dentro de la región, La división político-administrativa de Colombia, según el IGAC |
 | Parques Nacionales Naturales           | PNN                     | Límites y áreas protegidas bajo la categoría de parques nacionales. |
 | Resguardos indígenas                   | [Fuente no especificada] | Información sobre los resguardos indígenas en la región.  |
 
@@ -25,9 +25,9 @@ Los datos de MapBiomas Colombia (1985-2023), proporcionados a través de Google 
 
 Además, se añaden capas de Parques Nacionales Naturales (PNN) y resguardos indígenas, que permiten identificar áreas protegidas y territorios de pueblos indígenas, lo cual es fundamental para evaluar los procesos de deforestación y regeneración dentro de estas zonas específicas. Todo el conjunto de datos se transforma y ajusta al el sistema de proyección MAGNA-SIRGAS Origen Nacional  (EPSG:9377), garantizando que todas las capas puedan integrarse adecuadamente para realizar análisis espaciales y obtener resultados coherentes y comparables.
 
-
 Instalar API de GGE
-# 2. Llamar el asset donde se encuentran almacenadas las imágenes de cobertura (1985 - 2023)
+# 2. Análisis de Atributos y Filtrado
+Llamar el asset donde se encuentran almacenadas las imágenes de cobertura (1985 - 2023)
 # 3. Clasificación temática (Bosque=1, Cobertura_Natural=2, Uso=3)
 """
 Agrupación de coberturas en tres clases temáticas con base en la leyenda de MapBiomas:
