@@ -15,7 +15,7 @@ Identificar las transiciones de las coberturas y el uso del suelo en la región 
 | Departamentos | IGAC                     | Límites geográficos administrativos para la región amazónica descargados desde RAISG. La división político-administrativa de Colombia. |
 | Región amazónica                       | MapBiomas               | Datos sobre la región amazónica, incluyendo su evolución en el tiempo. |
 | Parques Nacionales Naturales           | PNN                     | Límites y áreas protegidas bajo la categoría de parques nacionales. |
-| Resguardos indígenas                   | [Fuente no especificada] | Información sobre los resguardos indígenas en la región.  |
+| Resguardos indígenas                   | Agencia Nacional de Tierras | Información sobre los resguardos indígenas en la región.  |
 
 
 La adquisición y preparación de los datos para este proyecto se basa en la integración de varias capas espaciales provenientes de diferentes fuentes, todas ellas alineadas en el mismo sistema de referencia de coordenadas (CRS) WGS84 (EPSG:9377) para asegurar la coherencia y precisión en los análisis espaciales. 
