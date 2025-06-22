@@ -3,8 +3,6 @@
 ## Objetivo
 Identificar las transiciones de las coberturas y el uso del suelo en la región amazónica colombiana, específicamente en lo que respecta a procesos de deforestación, regeneración y degradación. Para ello, se implementará un enfoque de procesamiento espacial utilizando técnicas avanzadas de programación, lo que permitirá comprender la evolución temporal y espacial de estos fenómenos.
 
-*DEFINIR FUNCIONES EN UN PY INDEPENDIENTE
-
 # 1. Metología del proyecto
 
 ## 1.1 Adquisición y Preparación de Datos
@@ -18,46 +16,42 @@ Identificar las transiciones de las coberturas y el uso del suelo en la región 
 | Resguardos indígenas                   | Agencia Nacional de Tierras | Capa de los resguardos indígenas de Colombia  |
 
 
-La adquisición y preparación de los datos para este proyecto integra varias capas espaciales de distintas fuentes, todas alineadas en el sistema de referencia WGS84 (EPSG:9377) para asegurar precisión en los análisis espaciales.
-
-Los datos de MapBiomas Colombia (1985-2023), extraídos de Google Earth Engine (GEE), proporcionan información sobre la cobertura y uso del suelo en la región amazónica, permitiendo el análisis temporal de sus cambios. Para delimitar el área de estudio, se incorporan los límites administrativos de la región amazónica del Sistema de Información sobre los Recursos Naturales y la Biodiversidad (SINCHI), junto con capas de Parques Nacionales Naturales (PNN) y resguardos indígenas, fundamentales para evaluar los procesos de deforestación y regeneración.
-
-Además, se extraerá la división político-administrativa de Colombia desde las capas del Instituto Geográfico Agustín Codazzi (IGAC). Todos los datos se transforman y ajustan al sistema de proyección MAGNA-SIRGAS Origen Nacional (EPSG:9377), asegurando la integración adecuada de las capas para análisis espaciales coherentes y comparables.
+Los datos de MapBiomas Colombia (1985-2023), extraídos de Google Earth Engine (GEE), proporcionan información sobre la cobertura y uso del suelo en la región amazónica, permitiendo el análisis temporal de sus cambios. Para delimitar el área de estudio, se incorporan los límites administrativos del Instituto Geográfico Agustín Codazzi (IGAC), junto con capas de Parques Nacionales Naturales (PNN), resguardos indígenas de la Agencia Nacional de Tierras (ANT) y el límite de la cuenca amazónica de MapBiomas. Todos los datos serán reproyectadas al mismo sistema de referencia (EPSG:9377) para asegurar precisión en los análisis espaciales, asegurando la integración adecuada de las capas para análisis espaciales coherentes y comparables.
 
 Instalar API de GGE
-# 2. Análisis de Atributos y Filtrado
+
 Seleccionar las coberturas del suelo y sus cambios anuales entre 1985 y 2023, accediendo al asset de imágenes proporcionado por MapBiomas Colombia mediante Google Earth Engine (GEE).
 
 La integración de estos datos facilita la creación de un mapa dinámico que permite visualizar y analizar los cambios espaciales y temporales en la cobertura del suelo año a año, haciendo una interpretación precisa de las transiciones de coberturas en la región amazónica, lo cual es esencial para evaluar la evolución de fenómenos como la deforestación, degrafación y la regeneración.
 
-# 3. Operaciones Espaciales
-La superposición de mapas para identificar las áreas deforestadas por año y dentro de zonas protegidas, así como calcular estadísticas para cuantificar los cambios anuales. Además, realizar la clasificación temática de coberturas, agrupando las clases de MapBiomas en tres categorías principales: bosque (1), cobertura natural (2) y uso (3), lo que facilita el análisis y la interpretación de las transiciones de cobertura.
+# 2. Operaciones Espaciales
+La superposición de los mapas permite identificar las áreas deforestadas por año, generando una clasificación temática que agrupa las clases de MapBiomas en tres categorías principales: bosque (1), cobertura natural (2) y uso (3), lo que facilita el análisis y la interpretación de las transiciones de cobertura.
 
 Agrupación de coberturas en tres clases temáticas con base en la leyenda de MapBiomas:
 
-3 -> Bosque\
-6 -> Bosque inundable\
-9 -> Sivicultura\
-11 -> Formación natural no forestal inindable\
-12 -> Formación herbásea\
-13 ->  Otra formación natural no forestal\
-21 -> Mosaico de agricultura y/o pastos\
-23 -> Playas dunas y bancos de areana\
-24 -> Estructura urbana\
-25 -> Otra área sin vegetación\
-29 -> Afloramiento rocoso\
-30 -> Minería \
-31 -> Acuicultura\
-33 -> Río, lago u oceano\
-35 -> Palma aceitera\
-50 -> Vejetación hervasea sobre arena\
-68 -> Otra área natural sin vegetación\
+3 -> Bosque\ -> 1
+6 -> Bosque inundable\ -> 1
+9 -> Sivicultura\ -> 3
+11 -> Formación natural no forestal inindable\ -> 2
+12 -> Formación herbásea\ -> 2
+13 ->  Otra formación natural no forestal\ -> 2
+21 -> Mosaico de agricultura y/o pastos\ -> 3
+23 -> Playas dunas y bancos de areana\ -> 2
+24 -> Estructura urbana\ -> 3
+25 -> Otra área sin vegetación\ -> 2
+29 -> Afloramiento rocoso\ -> 2
+30 -> Minería \ -> 3
+31 -> Acuicultura\ ->3
+33 -> Río, lago u oceano\ ->2
+35 -> Palma aceitera\ -> 3
+50 -> Vejetación hervasea sobre arena\ ->2
+68 -> Otra área natural sin vegetación\ -> 2
 """
-# 4. Identificación de transiciones 
-Las relaciones definidas en la identificación de transiciones reflejan cambios significativos en la cobertura del suelo entre dos periodos de tiempo. La condición 0 -> t1 == t2 indica sin cambios, donde no hay variación en la cobertura. La relación 1 -> t1 == 1 AND t2 == 3 identifica la deforestación, al pasar de un bosque (1) a área sin vegetación o uso antrópico (3). La transición 2 -> t1 == 3 AND t2 == 1 refleja la regeneración, donde áreas degradadas se restauran a bosque. Finalmente, 3 -> t1 == 3 AND t2 == 2 señala la degradación, cuando áreas de bosque se transforman en cobertura natural no forestal.
+# 3. Identificación de transiciones 
+Las relaciones definidas en la identificación de transiciones reflejan cambios significativos en la cobertura del suelo entre dos periodos de tiempo. La condición 0 -> t1 == t2 indica sin cambios, donde no hay variación en la cobertura. La relación 1 -> t1 == 1 AND t2 == 3 identifica la deforestación, al pasar de bosque (1) a área de uso (3). La transición 2 -> t1 == 3 AND t2 == 1 refleja la regeneración, donde áreas degradadas se restauran a bosque. Finalmente, 3 -> t1 == 3 AND t2 == 2 señala la degradación, cuando áreas de bosque se transforman en cobertura natural no forestal.
 
 """
-Identificación de transicione: Sin_cambios=0, Deforestación=1, Regeneración=2, Degradación=3)
+Clasificaión temática: Sin_cambios=0, Deforestación=1, Regeneración=2, Degradación=3
 
 Superposición de las imagenes raster que cumplan las siguientes condiciones
   0 -> t1 == t2\
@@ -65,17 +59,10 @@ Superposición de las imagenes raster que cumplan las siguientes condiciones
   2 -> t1 == 3 AND t2 == 1\
   3 -> t1 == 3 AND t2=2 \
 """
-# 5. Importar geometrias con áreas de interes
 
-Importar las geometrías correspondientes a las áreas de interés, que incluyen las capas generadas previamente en el proceso de superposición de imágenes raster. Estas áreas de interés están definidas por las transiciones de cobertura identificadas, como deforestación, regeneración y degradación. 
+# 4. Creación de mapas temáticos (anual y sectorial)
 
-A través de las funciones en ´data_preprocessing.py´, se integran estas geometrías con las capas de MapBiomas, límites administrativos y zonas protegidas, asegurando que todas las áreas relevantes estén adecuadamente representadas y alineadas para su posterior análisis y visualización. 
-
-Las capas resultantes, que reflejan cambios significativos en la cobertura del suelo, se visualizan y documentan en visualization_tools.py para facilitar la interpretación y evaluación de las dinámicas espaciales de los cambios en el uso del suelo.
-
-# 6. Creación de mapas temáticos (anual y sectorial)
-
-Con la información obtenida del procesamiento de datos, se pueden generar diversos mapas temáticos que ilustran los cambios en la cobertura del suelo a lo largo del tiempo y en diferentes sectores. Entre los mapas que se pueden crear, se incluyen:
+Con la información obtenida del procesamiento de datos, se pueden generar diversos mapas temáticos que ilustran los cambios en la cobertura del suelo a lo largo del tiempo y en diferentes sectores. Entre los mapas, se incluyen:
 
 6.1. Mapa de Deforestación Anual: Muestra las áreas deforestadas cada año, destacando las zonas de cambio de bosque (1) a área sin vegetación o uso antrópico (3). Este mapa ayuda a identificar patrones y focos de deforestación a lo largo del tiempo.
 
@@ -87,15 +74,15 @@ Con la información obtenida del procesamiento de datos, se pueden generar diver
 
 6.7. Mapa de Transiciones de Cobertura: Combina las transiciones identificadas (sin cambios, deforestación, regeneración, y degradación) para mostrar cómo ha variado la cobertura del suelo en función del tiempo y el territorio.
 
-# 7. Cálculo de estadísticas (anual y sectoral)
+# 5. Cálculo de estadísticas (anual y sectoral)
 Calcular las estadísticas relacionadas con las transiciones de cobertura del suelo a nivel anual y sectorial. 
 
-Utilizando las capas de deforestación, regeneración y degradación generadas en el paso anterior, se cuantifican las áreas afectadas por cada proceso en cada año y en sector específico:
--Zonas protegidas. 
+Utilizando las capas de deforestación, regeneración y degradación generadas en el paso anterior, se cuantifican las áreas afectadas por cada proceso en cada año y sector específico:
+-Áreas protegidas. 
 -Territorios indígenas. 
+- Departamentos
 
-Las estadísticas incluyen el cálculo de la extensión de las áreas transformadas:
-- Porcentaje de cambio en relación con el total de la cobertura de suelo.
+Las estadísticas incluyen el cálculo anual de la extensión de las áreas transformadas:
 
 Las funciones de analysis_functions.py facilitan este cálculo, proporcionando resultados precisos para su interpretación y toma de decisiones.
 
