@@ -16,11 +16,9 @@ Identificar las transiciones de las coberturas y el uso del suelo en la región 
 | Resguardos indígenas                   | Agencia Nacional de Tierras | Capa de los resguardos indígenas de Colombia  |
 
 
-Los datos de MapBiomas Colombia (1985-2023), extraídos de Google Earth Engine (GEE), proporcionan información sobre la cobertura y uso del suelo en la región amazónica, permitiendo el análisis temporal de sus cambios. Para delimitar el área de estudio, se incorporan los límites administrativos del Instituto Geográfico Agustín Codazzi (IGAC), junto con capas de Parques Nacionales Naturales (PNN), resguardos indígenas de la Agencia Nacional de Tierras (ANT) y el límite de la cuenca amazónica de MapBiomas. Todos los datos serán reproyectadas al mismo sistema de referencia (EPSG:9377) para asegurar precisión en los análisis espaciales, asegurando la integración adecuada de las capas para análisis espaciales coherentes y comparables.
+Los datos de la colección 2 de MapBiomas Colombia (1985-2023), extraídos de Google Earth Engine (GEE), proporcionan información anual sobre la cobertura y uso del suelo a nivel nacional, permitiendo el análisis temporal de sus cambios. Para delimitar el área de estudio a la región amazónica, se incorporan los límites administrativos del Instituto Geográfico Agustín Codazzi (IGAC) y el límite de la cuenca amazónica de la Red Amzonica de Información Socioambiental Georeferenciada (RAISG). Además, se incorporan como zonas de análisis, las capas de Parques Nacionales Naturales (PNN) y los resguardos indígenas obtenidos de la Agencia Nacional de Tierras (ANT). Todos los datos son reproyectados al mismo sistema de referencia (EPSG:9377) para asegurar precisión en los análisis espaciales, asegurando la integración adecuada de las capas para análisis espaciales coherentes y comparables.
 
-Instalar API de GGE
-
-Seleccionar las coberturas del suelo y sus cambios anuales entre 1985 y 2023, accediendo al asset de imágenes proporcionado por MapBiomas Colombia mediante Google Earth Engine (GEE).
+Los datos de MapBiomas, se encunetran almacenados en un asset de acceso libre en GEE. Para acceder a estos datos en jupyter notebook, se recomienda instalar la API de GEE desde docker.
 
 La integración de estos datos facilita la creación de un mapa dinámico que permite visualizar y analizar los cambios espaciales y temporales en la cobertura del suelo año a año, haciendo una interpretación precisa de las transiciones de coberturas en la región amazónica, lo cual es esencial para evaluar la evolución de fenómenos como la deforestación, degrafación y la regeneración.
 
