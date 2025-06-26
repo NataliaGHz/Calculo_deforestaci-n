@@ -109,4 +109,5 @@ Utilizando las capas de deforestación, regeneración y degradación generadas e
 * **ANDREA NATALIA GARCIA HERNANDEZ** - *Initial work* - [NataliaGHz](https://github.com/NataliaGHz)
 * **MEYI PAOLA BACCA GONZALEZ** - *Initial work* - [PaolaBacca](https://github.com/PaolaBacca)
 
+# Diagrama Metodológico
 ![Diagrama](https://drive.google.com/uc?export=view&id=11v9U374i5XyDgxKiMetPF8DXfEWJUCzJ)
