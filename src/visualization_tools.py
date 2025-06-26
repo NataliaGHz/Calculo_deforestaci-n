@@ -30,23 +30,15 @@ def load_geospatial_layers(ruta):
     """
     Carga las capas geoespaciales (departamentos, resguardos, áreas protegidas) desde archivos GPKG.
     """
-    dept = gpd.read_file(f"{ruta}/departamentos_9377.gpkg")
-    resg = gpd.read_file(f"{ruta}/resguardos_9377.gpkg")
-    runap = gpd.read_file(f"{ruta}/areas_protegidas_9377.gpkg")
-    region = gpd.read_file(f"{ruta}/region_amazonica_9377.gpkg")
+    caqueta_4326 = gpd.read_file(f"{ruta}/caqueta_4326.gpkg")
+    resguardos_caqueta_4326 = gpd.read_file(f"{ruta}/resguardos_caqueta_4326.gpkg")
+    parques_caqueta_4326 = gpd.read_file(f"{ruta}/parques_caqueta_4326.gpkg")
 
-    print("Departamentos:", dept.shape)
-    print("Resguardos:", resg.shape)
-    print("Áreas protegidas:", runap.shape)
-    print("Región amazónica:", region.shape)
+    print("Departamentos:", caqueta_4326.shape)
+    print("Resguardos:", resguardos_caqueta_4326.shape)
+    print("Áreas protegidas:", parques_caqueta_4326.shape)
     
-    # Reproyectar las capas para visualización
-    dept_ama_w = dept.to_crs(epsg=3857)
-    resg_ama_w = resg.to_crs(epsg=3857)
-    runap_ama_w = runap.to_crs(epsg=3857)
-    region_ama_w = region.to_crs(epsg=3857)
-    
-    return dept_ama_w, resg_ama_w, runap_ama_w, region_ama_w
+    return caqueta_4326, resguardos_caqueta_4326, parques_caqueta_4326
 
 # Definir la paleta de colores de MapBiomas Colombia
 def define_palette():
@@ -98,29 +90,28 @@ def visualizacion_rutas(rutas):
     return os.listdir(rutas)
 
 # Visualizar las capas geoespaciales de la región amazónica
-def visualize_geospatial_layers(dept_ama_w, resg_ama_w, runap_ama_w, region_ama_w):
+def visualize_geospatial_layers(caqueta_4326, resguardos_caqueta_4326, parques_caqueta_4326):
     """
     Visualiza las capas geoespaciales (departamentos, resguardos, áreas protegidas) sobre un mapa base.
     """
     fig, ax = plt.subplots(figsize=(5, 6))
-    ax.set_title("Capas de referencia de la región Amazónica colombiana", fontsize=12, pad=10)
+    ax.set_title("Capas de referencia del departamento de interés", fontsize=12, pad=10)
 
     # Dibujar capas
-    resg_ama_w.plot(ax=ax, color='violet', edgecolor='black', linewidth=0.3, alpha=0.8)
-    runap_ama_w.plot(ax=ax, color='green', edgecolor='black', linewidth=0.3, alpha=0.8)
-    dept_ama_w.plot(ax=ax, facecolor='none', edgecolor='black', linewidth=1)
-    region_ama_w.plot(ax=ax, facecolor='none', edgecolor='black', linewidth=1)
+    resguardos_caqueta_4326.plot(ax=ax, color='violet', edgecolor='black', linewidth=0.3, alpha=0.8)
+    parques_caqueta_4326.plot(ax=ax, color='green', edgecolor='black', linewidth=0.3, alpha=0.8)
+    caqueta_4326.plot(ax=ax, facecolor='none', edgecolor='black', linewidth=1)
     
 
     # Mapa base
-    ctx.add_basemap(ax, source=ctx.providers.CartoDB.Voyager, crs=3857)
+    ctx.add_basemap(ax, source=ctx.providers.CartoDB.Voyager, crs=4326)
 
     # Leyenda personalizada
     legend_patches = [
         mpatches.Patch(facecolor='none', alpha=1, edgecolor='black', label='Departamentos'),
         mpatches.Patch(facecolor='violet', alpha=0.8, edgecolor='black', label='Resguardos indígenas'),
         mpatches.Patch(facecolor='green', alpha=0.8, edgecolor='black', label='Áreas protegidas'),
-        mpatches.Patch(facecolor='none', alpha=0.8, edgecolor='black', label='Región')
+
     ]
     ax.legend(handles=legend_patches, loc='lower left', fontsize=7, title="Capas")
 
@@ -128,3 +119,49 @@ def visualize_geospatial_layers(dept_ama_w, resg_ama_w, runap_ama_w, region_ama_
     ax.set_axis_off()
     plt.tight_layout()
     plt.show()
+
+
+# Guardar las capas recortadas y reproyectadas como archivos GPKG
+def clip_raster_to_region(caqueta_4326):
+
+    #--- Convert Caquetá geometry to Earth Engine format ---
+    
+    caqueta_geom = caqueta_4326.geometry.iloc[0]                   # Extract the polygon geometry
+    caqueta_coords = caqueta_geom.__geo_interface__       # Convert to GeoJSON format
+    caqueta_ee = ee.Geometry(caqueta_coords)              # Convert to Earth Engine Geometry
+    
+    # --  Load the coberturas and clip it to Caquetá ---
+    
+    # Use the cobertura (30m resolution) provided by the MapBiomas
+    cober = ee.Image("projects/mapbiomas-public/assets/colombia/collection2/mapbiomas_colombia_collection2_integration_v1")
+    
+    # Clip coberturas to the area of interest
+    cober_clipped = cober.clip(caqueta_ee)
+    
+    print("✅ Capas  convertidas correctamente en:")
+
+    return cober_clipped, caqueta_geom
+
+# Visualizavión de departamento de interes 
+def visualizacion_raster_dep(palette,caqueta_geom,cober_clipped,anio):
+
+    # Centrar el mapa en el centroide de la geometría de Caquetá
+    centroide = caqueta_geom.centroid
+    Map = geemap.Map(center=[centroide.y, centroide.x], zoom=8)
+    
+    # Seleccionar la banda del año deseado
+    cober_clipped_anio = cober_clipped.select('classification_'+anio)
+    
+    # Añadir la capa recortada
+    Map.addLayer(
+        cober_clipped_anio,
+        {
+            'min': 0,
+            'max': 68,
+            'palette': palette  # Usa tu paleta definida
+        },
+        'Cobertura MapBiomas '+anio +' - Caquetá'
+    )
+    
+    # Mostrar el mapa
+    return Map
