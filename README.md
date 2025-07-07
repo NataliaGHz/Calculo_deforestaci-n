@@ -1,7 +1,28 @@
 # Calculo transiciones cobertura
 ## Descripción de Notebooks
-Este proyecto se compone de 
+Este proyecto se compone de la siguiente manera
 
+|-- README.md 
+|-- notebooks/
+|   |-- data_preparation.ipynb 
+|   |-- suitability_analysis.ipynb
+|   |-- visualization.ipynb
+|-- src/
+|   |-- data_preprocessing.py
+|   |-- analysis_functions.py
+|   |-- visualization_tools.py
+|-- results/
+|   |-- maps/
+|   |-- charts/
+|-- docs/
+|   |-- references.md
+|-- presentation/
+|   |-- slides.pdf
+
+Donde: 
+- src/: Alberga scripts modulares de Python con funciones y clases reutilizables.
+- notebooks/: Contiene Jupyter Notebooks que se utilizan para mostrar resultados y demostrar la funcionalidad.
+- results/: Mapas y gráficos
 
 ## Objetivo
 Identificar las transiciones de las coberturas y el uso del suelo en la región amazónica colombiana, específicamente en lo que respecta a procesos de deforestación, regeneración y degradación. Para ello, se implementará un enfoque de procesamiento espacial utilizando técnicas avanzadas de programación, lo que permitirá comprender la evolución temporal y espacial de estos fenómenos.
