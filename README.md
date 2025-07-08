@@ -2,22 +2,22 @@
 ## Descripción de Notebooks
 Este proyecto se compone de la siguiente manera
 
-|-- README.md 
-|-- notebooks/
-|   |-- data_preparation.ipynb 
-|   |-- suitability_analysis.ipynb
-|   |-- visualization.ipynb
-|-- src/
-|   |-- data_preprocessing.py
-|   |-- analysis_functions.py
-|   |-- visualization_tools.py
-|-- results/
-|   |-- maps/
-|   |-- charts/
-|-- docs/
-|   |-- references.md
-|-- presentation/
-|   |-- slides.pdf
+- |-- README.md 
+- |-- notebooks/
+- |   |-- data_preparation.ipynb 
+- |   |-- suitability_analysis.ipynb
+- |   |-- visualization.ipynb
+- |-- src/
+- |   |-- data_preprocessing.py
+- |   |-- analysis_functions.py
+- |   |-- visualization_tools.py
+- |-- results/
+- |   |-- maps/
+- |   |-- charts/
+- |-- docs/
+- |   |-- references.md
+- |-- presentation/
+- |   |-- slides.pdf
 
 Donde: 
 - src/: Alberga scripts modulares de Python con funciones y clases reutilizables.
