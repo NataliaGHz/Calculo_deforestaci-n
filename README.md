@@ -103,6 +103,8 @@ Las relaciones que se definen para identificar los cambios en la cobertura del s
 - **Regeneración (2)**: Transformación de uso antrópico a bosque.
 - **Degradación (3)**: Cambio de bosque a cobertura natural no forestal.
 
+NOTA: Cualquier otra transición se la asigná el valor 4 lo que corresponde a "Otro"
+
 
 # 4. Creación de mapas temáticos (anual y sectorial)
 
