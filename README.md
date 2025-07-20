@@ -95,7 +95,7 @@ Las relaciones que se definen para identificar los cambios en la cobertura del s
 | **0 -> Sin cambios**      | t1 == t2                                   | No hay variación en la cobertura del suelo entre los dos años. |
 | **1 -> Deforestación**    | t1 == 1 AND t2 == 3                        | Se produce deforestación cuando un **bosque (1)** se convierte en **uso antrópico (3)**. |
 | **2 -> Regeneración**     | t1 == 3 AND t2 == 1                        | La regeneración ocurre cuando un área de **uso antrópico (3)** se restaura a **bosque (1)**. |
-| **3 -> Degradación**     | t1 == 3 AND t2 == 2                        | La degradación se produce cuando un área de **bosque (1)** se convierte en **cobertura natural no forestal (2)**. |
+| **3 -> Degradación**     | t1 == 1 AND t2 == 2                        | La degradación se produce cuando un área de **bosque (1)** se convierte en **cobertura natural no forestal (2)**. |
 
 ### **Clasificación Temática**:
 - **Sin cambios (0)**: No hay variación en la cobertura entre los dos periodos.
