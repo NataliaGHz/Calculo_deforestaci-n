@@ -5,25 +5,72 @@ Este proyecto se compone de la siguiente manera
 - |-- README.md 
 - |-- notebooks/
 - |   |-- data_preparation.ipynb 
-- |   |-- suitability_analysis.ipynb
+- |   |-- suitability_analysis.ipynb 
 - |   |-- visualization.ipynb
 - |-- src/
 - |   |-- data_preprocessing.py
 - |   |-- analysis_functions.py
 - |   |-- visualization_tools.py
 - |-- results/
-- |   |-- maps/
-- |   |-- charts/
-- |-- docs/
+- |   |-- maps/ (revisar)
+- |   |-- charts/ (revisar)
+- |   |-- CAPAS_DPTO/
+- |   |   |-- dpto_4326.gpkg
+- |   |   |-- parques_dpto_4326.gpkg
+- |   |   |-- resguardos_dpto_4326.gpkg
+- |   |-- COBER_DPTO/
+- |   |   |-- Mapbiomas_from_2019_to_2023.tif
+- |   |-- RECLASS/
+- |   |   |-- Mapbiomas_from_2019_to_2023_reclass.tif
+- |   |-- STATS/
+- |   |   |-- PNN_Deforestacion_2023.png
+- |   |   |-- PNN_Degradacion_2023.png
+- |   |   |-- PNN_Regeneracion_2023.png
+- |   |   |-- Resguardos_Deforestacion_2023.png
+- |   |   |-- Resguardos_Degradacion_2023.png
+- |   |   |-- Resguardos_Regeneracion_2023.png
+- |   |   |-- grafico_transiciones.png
+- |   |   |-- resumen_transiciones.csv
+- |   |   |-- transiciones_2023.csv
+- |   |-- TRANSICIONES/
+- |   |   |-- transicion_2019_to_2020.tif
+- |   |   |-- transicion_2020_to_2021.tif
+- |   |   |-- transicion_2021_to_2022.tif
+- |   |   |-- transicion_2022_to_2023.tif
+- |-- docs/ (revisar)
 - |   |-- references.md
-- |-- presentation/
+- |-- presentation/ (revisar)
 - |   |-- slides.pdf
+- |-- DATOS/
+- |   |-- Resg/
+- |   |   |-- Resguardo_Indigena_Formalizado.shp
+- |   |-- dept/
+- |   |   |-- Departamento.shp
+- |   |-- region/
+- |   |   |-- RAISG.shp
+- |   |-- runap/
+- |   |   |-- runap.shp
 
 Donde: 
-- src/: Alberga scripts modulares de Python con funciones y clases reutilizables.
-- notebooks/: Contiene Jupyter Notebooks que se utilizan para mostrar resultados y demostrar la funcionalidad.
-- results/: Mapas y gráficos
-
+- src/: Alberga scripts modulares de Python con funciones y clases reutilizables. Este directorio incluye los archivos necesarios para el preprocesamiento de datos, el análisis de las transiciones de uso del suelo y la visualización de los resultados.
+- notebooks/: Contiene Jupyter Notebooks que se utilizan para realizar el análisis interactivo, mostrar resultados y demostrar la funcionalidad del código. Los notebooks son esenciales para la visualización de los resultados y para presentar las estadísticas obtenidas durante el análisis.
+- results/: Aquí se almacenan los mapas, gráficos y estadísticas. Esta carpeta incluye:
+- ---maps/: Mapas de las coberturas de uso del suelo y las transiciones entre años (revisar).
+- ---charts/: Gráficos con las estadísticas de las transiciones de uso del suelo (revisar).
+- ---CAPAS_DPTO/: Archivos con las capas geoespaciales de los departamentos, parques y resguardos de la región estudiada.
+- ---COBER_DPTO/: Archivos rasterizados de las coberturas de uso del suelo generadas por MapBiomas.
+- ---RECLASS/: Imágenes rasterizadas con las coberturas de uso del suelo ya reclasificadas.
+- ---STATS/: Archivos que contienen las estadísticas de áreas afectadas por las transiciones de uso del suelo.
+- ---TRANSICIONES/: Archivos rasterizados con las transiciones de uso del suelo entre diferentes años.
+- docs/: Contiene las referencias bibliográficas utilizadas en el proyecto. Incluye:
+- ---references.md: Lista de las fuentes y recursos citados en el proyecto.
+- presentation/: Carpeta que contiene la presentación del proyecto en formato PDF, con las diapositivas necesarias para la exposición.
+- DATOS/: Contiene los datos originales de entrada para el análisis, incluyendo shapefiles y otros datos geoespaciales organizados en diferentes categorías:
+- ---Resg/: Shapefiles con la información de los resguardos indígenas.
+- ---dept/: Shapefiles con la información de los departamentos.
+- ---region/: Shapefiles con la información de las regiones de interés.
+- ---runap/: Archivos con información sobre áreas protegidas y otras zonas relevantes para el análisis.
+  
 ## Objetivo
 Identificar las transiciones de las coberturas y el uso del suelo en la región amazónica colombiana, específicamente en lo que respecta a procesos de deforestación, regeneración y degradación. Para ello, se implementará un enfoque de procesamiento espacial utilizando técnicas avanzadas de programación, lo que permitirá comprender la evolución temporal y espacial de estos fenómenos.
 
