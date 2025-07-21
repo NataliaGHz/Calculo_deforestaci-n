@@ -72,7 +72,7 @@ Donde:
 - ---runap/: Archivos con información sobre áreas protegidas y otras zonas relevantes para el análisis.
   
 ## Objetivo
-Identificar las transiciones de las coberturas y el uso del suelo en la región amazónica colombiana, específicamente en lo que respecta a procesos de deforestación, regeneración y degradación. Para ello, se implementará un enfoque de procesamiento espacial utilizando técnicas avanzadas de programación, lo que permitirá comprender la evolución temporal y espacial de estos fenómenos.
+Implementará un enfoque de procesamiento espacial utilizando técnicas avanzadas de programación para identificar las transiciones de las coberturas y el uso del suelo en un departamento de interés, específicamente procesos de deforestación, regeneración y degradación. 
 
 # 1. Metología del proyecto
 
