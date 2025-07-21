@@ -12,15 +12,15 @@ Este proyecto se compone de la siguiente manera
 - |   |-- analysis_functions.py
 - |   |-- visualization_tools.py
 - |-- results/
-- |   |-- maps/ (revisar)
+- |   |-- MAPS/
 - |   |-- CAPAS_DPTO/
 - |   |-- COBER_DPTO/
 - |   |-- RECLASS/
 - |   |-- TRANSICIONES/
 - |   |-- STATS/
-- |-- docs/ (revisar)
+- |-- docs/
 - |   |-- references.md
-- |-- presentation/ (revisar)
+- |-- presentation/
 - |   |-- slides.pdf
 - |-- DATOS/
 - |   |-- Resg/
@@ -36,8 +36,7 @@ Donde:
 - src/: Alberga scripts modulares de Python con funciones y clases reutilizables. Este directorio incluye los archivos necesarios para el preprocesamiento de datos, el análisis de las transiciones de uso del suelo y la visualización de los resultados.
 - notebooks/: Contiene Jupyter Notebooks que se utilizan para realizar el análisis interactivo, mostrar resultados y demostrar la funcionalidad del código. Los notebooks son esenciales para la visualización de los resultados y para presentar las estadísticas obtenidas durante el análisis.
 - results/: Aquí se almacenan los mapas, gráficos y estadísticas. Esta carpeta incluye:
-- ---maps/: Mapas de las coberturas de uso del suelo y las transiciones entre años (revisar).
-- ---charts/: Gráficos con las estadísticas de las transiciones de uso del suelo (revisar).
+- ---MAPS/: Mapas de las coberturas de uso del suelo y las transiciones entre años (revisar).
 - ---CAPAS_DPTO/: Archivos con las capas geoespaciales de los departamentos, parques y resguardos de la región estudiada.
 - ---COBER_DPTO/: Archivos rasterizados de las coberturas de uso del suelo generadas por MapBiomas.
 - ---RECLASS/: Imágenes rasterizadas con las coberturas de uso del suelo ya reclasificadas.
