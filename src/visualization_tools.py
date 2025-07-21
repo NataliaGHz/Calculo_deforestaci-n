@@ -5,6 +5,19 @@ import contextily as ctx
 import matplotlib.patches as mpatches
 import geemap
 import os
+import ipywidgets as widgets
+from IPython.display import display, clear_output
+import rasterio
+import rasterio.plot
+from matplotlib.colors import ListedColormap
+import numpy as np
+import glob
+from rasterio.plot import show
+from matplotlib.patches import Patch
+import pandas as pd
+import re
+from rasterio.mask import mask
+
 
 # Autenticación en Google Earth Engine
 def authenticate_earth_engine():
@@ -22,7 +35,7 @@ def load_mapbiomas_asset():
     """
     Carga el asset de MapBiomas Colombia desde Google Earth Engine.
     """
-    imagen = ee.Image("projects/mapbiomas-public/assets/colombia/collection1/mapbiomas_colombia_collection1_integration_v1")
+    imagen = ee.Image("projects/mapbiomas-public/assets/colombia/collection2/mapbiomas_colombia_collection2_integration_v1")
     return imagen
 
 # Cargar capas geoespaciales (departamentos, resguardos, áreas protegidas)
@@ -30,15 +43,15 @@ def load_geospatial_layers(ruta):
     """
     Carga las capas geoespaciales (departamentos, resguardos, áreas protegidas) desde archivos GPKG.
     """
-    caqueta_4326 = gpd.read_file(f"{ruta}/caqueta_4326.gpkg")
-    resguardos_caqueta_4326 = gpd.read_file(f"{ruta}/resguardos_caqueta_4326.gpkg")
-    parques_caqueta_4326 = gpd.read_file(f"{ruta}/parques_caqueta_4326.gpkg")
+    dpto_4326 = gpd.read_file(f"{ruta}/dpto_4326.gpkg")
+    resguardos_dpto_4326 = gpd.read_file(f"{ruta}/resguardos_dpto_4326.gpkg")
+    parques_dpto_4326 = gpd.read_file(f"{ruta}/parques_dpto_4326.gpkg")
 
-    print("Departamentos:", caqueta_4326.shape)
-    print("Resguardos:", resguardos_caqueta_4326.shape)
-    print("Áreas protegidas:", parques_caqueta_4326.shape)
+    print("Departamentos:", dpto_4326.shape)
+    print("Resguardos:", resguardos_dpto_4326.shape)
+    print("Áreas protegidas:", parques_dpto_4326.shape)
     
-    return caqueta_4326, resguardos_caqueta_4326, parques_caqueta_4326
+    return dpto_4326, resguardos_dpto_4326, parques_dpto_4326
 
 # Definir la paleta de colores de MapBiomas Colombia
 def define_palette():
@@ -90,7 +103,7 @@ def visualizacion_rutas(rutas):
     return os.listdir(rutas)
 
 # Visualizar las capas geoespaciales de la región amazónica
-def visualize_geospatial_layers(caqueta_4326, resguardos_caqueta_4326, parques_caqueta_4326):
+def visualize_geospatial_layers(dpto_4326, resguardos_dpto_4326, parques_dpto_4326):
     """
     Visualiza las capas geoespaciales (departamentos, resguardos, áreas protegidas) sobre un mapa base.
     """
@@ -98,9 +111,9 @@ def visualize_geospatial_layers(caqueta_4326, resguardos_caqueta_4326, parques_c
     ax.set_title("Capas de referencia del departamento de interés", fontsize=12, pad=10)
 
     # Dibujar capas
-    resguardos_caqueta_4326.plot(ax=ax, color='violet', edgecolor='black', linewidth=0.3, alpha=0.8)
-    parques_caqueta_4326.plot(ax=ax, color='green', edgecolor='black', linewidth=0.3, alpha=0.8)
-    caqueta_4326.plot(ax=ax, facecolor='none', edgecolor='black', linewidth=1)
+    resguardos_dpto_4326.plot(ax=ax, color='violet', edgecolor='black', linewidth=0.3, alpha=0.8)
+    parques_dpto_4326.plot(ax=ax, color='green', edgecolor='black', linewidth=0.3, alpha=0.8)
+    dpto_4326.plot(ax=ax, facecolor='none', edgecolor='black', linewidth=1)
     
 
     # Mapa base
@@ -122,13 +135,13 @@ def visualize_geospatial_layers(caqueta_4326, resguardos_caqueta_4326, parques_c
 
 
 # Guardar las capas recortadas y reproyectadas como archivos GPKG
-def clip_raster_to_region(caqueta_4326):
+def clip_raster_to_region(dpto_4326):
 
     #--- Convert Caquetá geometry to Earth Engine format ---
     
-    caqueta_geom = caqueta_4326.geometry.iloc[0]                   # Extract the polygon geometry
-    caqueta_coords = caqueta_geom.__geo_interface__       # Convert to GeoJSON format
-    caqueta_ee = ee.Geometry(caqueta_coords)              # Convert to Earth Engine Geometry
+    dpto_geom = dpto_4326.geometry.iloc[0]                   # Extract the polygon geometry
+    dpto_coords = dpto_geom.__geo_interface__       # Convert to GeoJSON format
+    dpto_ee = ee.Geometry(dpto_coords)              # Convert to Earth Engine Geometry
     
     # --  Load the coberturas and clip it to Caquetá ---
     
@@ -136,17 +149,17 @@ def clip_raster_to_region(caqueta_4326):
     cober = ee.Image("projects/mapbiomas-public/assets/colombia/collection2/mapbiomas_colombia_collection2_integration_v1")
     
     # Clip coberturas to the area of interest
-    cober_clipped = cober.clip(caqueta_ee)
+    cober_clipped = cober.clip(dpto_ee)
     
     print("✅ Capas  convertidas correctamente en:")
 
-    return cober_clipped, caqueta_geom
+    return cober_clipped, dpto_geom
 
 # Visualizavión de departamento de interes 
-def visualizacion_raster_dep(palette,caqueta_geom,cober_clipped,anio):
+def visualizacion_raster_dep(palette,dpto_geom,cober_clipped,anio):
 
     # Centrar el mapa en el centroide de la geometría de Caquetá
-    centroide = caqueta_geom.centroid
+    centroide = dpto_geom.centroid
     Map = geemap.Map(center=[centroide.y, centroide.x], zoom=8)
     
     # Seleccionar la banda del año deseado
@@ -165,3 +178,378 @@ def visualizacion_raster_dep(palette,caqueta_geom,cober_clipped,anio):
     
     # Mostrar el mapa
     return Map
+
+def visualizar_reclass(ruta_salida, anios, anio_inicial):
+    """
+    Visualiza bandas individuales directamente con Rasterio, aplicando una paleta personalizada.
+    """
+    # Paleta de colores personalizada:
+    colores = [ (0, 0, 0, 0),                      # 0: transparente (usado como fondo)
+                (51/255, 102/255, 0/255, 1),       # 1: Bosque (verde)
+                (204/255, 204/255, 0/255, 1),      # 2: No forestal (amarillo)
+                (153/255, 0/255, 0/255, 1) ]       # 3: Antrópico (vinotinto)
+
+    cmap = ListedColormap(colores)
+
+    with rasterio.open(ruta_salida) as src:
+        total_bandas = src.count
+        nombre_archivo = os.path.basename(ruta_salida)
+
+        fig, axes = plt.subplots(1, len(anios), figsize=(6 * len(anios), 6))
+        if len(anios) == 1:
+            axes = [axes]
+
+        for i, anio in enumerate(anios):
+            banda_idx = anio - anio_inicial + 1
+            if banda_idx < 1 or banda_idx > total_bandas:
+                print(f"⚠️ El año {anio} no está disponible.")
+                continue
+
+            banda = src.read(banda_idx)  # No convierte a array enmascarado
+            axes[i].imshow(banda, cmap=cmap, vmin=0, vmax=3)
+            axes[i].set_title(f"{nombre_archivo}\nAño: {anio}")
+            axes[i].axis('off')
+
+        # Leyenda personalizada
+        leyenda = [
+            mpatches.Patch(color=colores[1], label="1: Bosque"),
+            mpatches.Patch(color=colores[2], label="2: Natural no forestal"),
+            mpatches.Patch(color=colores[3], label="3: Uso antrópico")
+        ]
+        plt.legend(handles=leyenda, loc='lower center', bbox_to_anchor=(-0.1, -0.25),
+                   ncol=3, fontsize='small', frameon=False)
+
+        plt.tight_layout()
+        plt.show()
+        
+def visualizar_transiciones(
+    carpeta_tifs,
+    anio_desde,
+    anio_hasta,
+    ruta_shapefile_departamento=None
+):
+    # Leer shapefile si se proporciona
+    gdf_departamento = gpd.read_file(ruta_shapefile_departamento) if ruta_shapefile_departamento else None
+
+    # Buscar archivos que cumplan con el rango
+    archivos = sorted(glob.glob(os.path.join(carpeta_tifs, "*.tif")))
+    archivos_filtrados = [
+        f for f in archivos
+        if f"{anio_desde}" in f or any(f"{a}" in f for a in range(anio_desde, anio_hasta))
+    ]
+
+    if not archivos_filtrados:
+        print("⚠️ No se encontraron archivos que coincidan con los años especificados.")
+        return
+
+    for ruta_tif in archivos_filtrados:
+        nombre_archivo = os.path.basename(ruta_tif).replace(".tif", "")
+        with rasterio.open(ruta_tif) as src:
+            fig, ax = plt.subplots(figsize=(10, 8))
+            
+
+            # Crear colormap personalizado para clases 0–4
+            from matplotlib.colors import ListedColormap
+            colores = ['#ffffff','#e41a1c', '#4daf4a', '#ff7f00']
+            cmap_clases = ListedColormap(colores)
+
+            # Mostrar raster con los colores definidos
+            imagen = show(src, ax=ax, cmap=cmap_clases, title=nombre_archivo)
+
+            # Añadir shapefile si aplica
+            if gdf_departamento is not None:
+               gdf_departamento.boundary.plot(ax=ax, edgecolor='red', linewidth=1)
+
+            # Crear leyenda simple por valores únicos
+            array = src.read(1)
+            unique = sorted(set(array.flatten()) - {src.nodata})
+            colores = ['#ffffff', '#e41a1c', '#4daf4a', '#ff7f00', '#999999']
+            etiquetas = [str(int(u)) for u in unique]
+
+            # Generar leyenda
+            from matplotlib.patches import Patch
+            leyenda_patches = [Patch(color=colores[i], label=etiquetas[i]) for i in range(len(unique))]
+            plt.legend(handles=leyenda_patches, title="Clases", bbox_to_anchor=(1.05, 1), loc='upper left')
+            plt.tight_layout()
+            plt.show()
+
+def analizar_transiciones_y_exportar(carpeta_tifs, carpeta_destino, pixel_area_ha=0.09):
+    """
+    Procesa rásteres de transiciones anuales con clases 1 (deforestación), 2 (regeneración), 3 (degradación),
+    genera gráfico y guarda CSV con resultados anuales.
+
+    Parámetros:
+    - carpeta_tifs: ruta donde están los rásteres de transición
+    - carpeta_destino: ruta donde se guardarán el gráfico y el CSV
+    - pixel_area_ha: área en hectáreas por píxel (por defecto 0.09 ha)
+    """
+    datos = {}
+
+    for archivo in os.listdir(carpeta_tifs):
+        if archivo.endswith(".tif") and "transicion" in archivo.lower():
+            ruta = os.path.join(carpeta_tifs, archivo)
+
+            # Extraer año destino desde el nombre del archivo
+            partes = archivo.replace(".tif", "").split("_")
+            try:
+                anio_destino = int(partes[-1])
+            except ValueError:
+                print(f"⚠️ No se pudo extraer el año de: {archivo}")
+                continue
+
+            with rasterio.open(ruta) as src:
+                array = src.read(1)
+                array = array[array != src.nodata]
+
+                for clase in [1, 2, 3]:
+                    conteo = np.sum(array == clase)
+                    area = conteo * pixel_area_ha
+
+                    if anio_destino not in datos:
+                        datos[anio_destino] = {"Deforestación": 0, "Regeneración": 0, "Degradación": 0}
+
+                    if clase == 1:
+                        datos[anio_destino]["Deforestación"] += area
+                    elif clase == 2:
+                        datos[anio_destino]["Regeneración"] += area
+                    elif clase == 3:
+                        datos[anio_destino]["Degradación"] += area
+
+    # Crear DataFrame
+    df = pd.DataFrame.from_dict(datos, orient='index')
+    df.index.name = 'Año'
+    df = df.sort_index()
+
+    # Exportar CSV
+    os.makedirs(carpeta_destino, exist_ok=True)
+    path_csv = os.path.join(carpeta_destino, "resumen_transiciones.csv")
+    df.to_csv(path_csv, index=True)
+
+    # Graficar
+    colores = {"Deforestación": "red", "Regeneración": "green", "Degradación": "orange"}
+    plt.figure(figsize=(10, 6))
+    for clase in df.columns:
+        plt.plot(df.index, df[clase], marker='o', label=clase, color=colores[clase])
+
+    plt.xlabel("Año")
+    plt.ylabel("Área (ha)")
+    plt.title("Cambios anuales por clase")
+    plt.xticks(df.index)
+    plt.grid(True)
+    plt.legend()
+    plt.tight_layout()
+
+    path_img = os.path.join(carpeta_destino, "grafico_transiciones.png")
+    plt.savefig(path_img, dpi=300)
+    plt.show()
+
+    print(f"✅ CSV guardado en: {path_csv}")
+    print(f"✅ Gráfico guardado en: {path_img}")
+
+
+def graficar_transiciones_por_area_protegida_beta(
+    carpeta_tifs,
+    anio,
+    gdf_pnn,
+    gdf_resguardos,
+    resolucion=30,  # en metros
+    carpeta_exportacion='/notebooks/DEFORESTACION/results/STATS'  # Ruta para exportar resultados
+):
+    archivos = sorted(glob.glob(os.path.join(carpeta_tifs, f"transicion_{anio-1}_to_{anio}.tif")))
+    if not archivos:
+        print(f"⚠️ No se encontró ningún archivo para el año {anio}.")
+        return
+
+    ruta_tif = archivos[0]
+    pixel_area_ha = (resolucion ** 2) / 10000  # conversión m² a ha
+
+    resultados = []
+
+    with rasterio.open(ruta_tif) as src:
+        crs_raster = src.crs
+
+        # Asegurar mismo CRS
+        gdf_pnn = gdf_pnn.to_crs(crs_raster)
+        gdf_resguardos = gdf_resguardos.to_crs(crs_raster)
+
+        for tipo_area, gdf in [("PNN", gdf_pnn), ("Resguardos", gdf_resguardos)]:
+            for idx, row in gdf.iterrows():
+                nombre_area = row.get("NOMBRE") or row.get("ap_nombre") or f"Area_{idx}"
+                geom = [row["geometry"]]
+
+                try:
+                    array, _ = mask(src, geom, crop=True)
+                    array = array[0]
+
+                    for clase, nombre_clase in zip([1, 2, 3], ['Deforestación', 'Regeneración', 'Degradación']):
+                        cantidad = np.sum(array == clase)
+                        area_ha = cantidad * pixel_area_ha
+
+                        resultados.append({
+                            "Año": int(anio),
+                            "Tipo": tipo_area,
+                            "Nombre": nombre_area,
+                            "Clase": nombre_clase,
+                            "Área_ha": area_ha
+                        })
+
+                except Exception as e:
+                    print(f"⚠️ Error al procesar {nombre_area}: {e}")
+                    continue
+
+    df_resultados = pd.DataFrame(resultados)
+    if df_resultados.empty:
+        print("⚠️ No se encontraron transiciones en las áreas protegidas.")
+        return
+
+    # 🔽 Exportar CSV
+    nombre_csv = f"transiciones_{anio}.csv"
+    ruta_csv = os.path.join(carpeta_exportacion, nombre_csv)
+    df_resultados.to_csv(ruta_csv, index=False)
+    print(f"✅ CSV guardado en: {ruta_csv}")
+
+    # 🔽 Visualización de gráficos
+    fig, axes = plt.subplots(6, 1, figsize=(10, 25))  # 6 filas, 1 columna para las gráficas
+    clases = ['Deforestación', 'Regeneración', 'Degradación']
+    tipos = ['PNN', 'Resguardos']
+
+    for i, tipo in enumerate(tipos):
+        for j, clase in enumerate(clases):
+            ax = axes[i * 3 + j]
+            subset = df_resultados[(df_resultados["Tipo"] == tipo) & (df_resultados["Clase"] == clase)]
+            subset = subset.sort_values("Área_ha", ascending=False).head(10)
+            ax.barh(subset["Nombre"], subset["Área_ha"], color=["#d73027", "#1a9850", "#fee08b"][j])
+            ax.set_title(f"{clase} en {tipo} - {anio}")
+            ax.set_xlabel("Área (ha)")
+            ax.set_ylabel("Nombre")
+            ax.invert_yaxis()
+
+            # Guardar gráfica individual
+            nombre_archivo = f"{tipo}_{clase}_{anio}.png"
+            ruta_guardado = os.path.join(carpeta_exportacion, nombre_archivo)
+            plt.tight_layout()
+            plt.savefig(ruta_guardado)
+            print(f"✅ Gráfica guardada en: {ruta_guardado}")
+
+    plt.tight_layout()
+    plt.show()
+
+    return df_resultados
+
+
+
+
+
+
+def graficar_transiciones_por_area_protegida(
+    carpeta_tifs,
+    anio,
+    gdf_pnn,
+    gdf_resguardos,
+    resolucion=30,  # en metros
+    carpeta_exportacion='/notebooks/DEFORESTACION/results/STATS'  # Ruta para exportar las gráficas
+):
+    archivos = sorted(glob.glob(os.path.join(carpeta_tifs, f"transicion_{anio-1}_to_{anio}.tif")))
+    if not archivos:
+        print(f"⚠️ No se encontró ningún archivo para el año {anio}.")
+        return
+
+    ruta_tif = archivos[0]
+    pixel_area_ha = (resolucion ** 2) / 10000  # conversión m² a ha
+
+    resultados = []
+
+    with rasterio.open(ruta_tif) as src:
+        crs_raster = src.crs
+
+        # Asegurar mismo CRS
+        gdf_pnn = gdf_pnn.to_crs(crs_raster)
+        gdf_resguardos = gdf_resguardos.to_crs(crs_raster)
+
+        for tipo_area, gdf in [("PNN", gdf_pnn), ("Resguardos", gdf_resguardos)]:
+            for idx, row in gdf.iterrows():
+                nombre_area = row["NOMBRE"] if "NOMBRE" in row else row["ap_nombre"]
+                geom = [row["geometry"]]
+
+                try:
+                    array, _ = mask(src, geom, crop=True)
+                    array = array[0]
+
+                    for clase, nombre_clase in zip([1, 2, 3], ['Deforestación', 'Regeneración', 'Degradación']):
+                        cantidad = np.sum(array == clase)
+                        area_ha = cantidad * pixel_area_ha
+
+                        resultados.append({
+                            "Año": anio,
+                            "Tipo": tipo_area,
+                            "Nombre": nombre_area,
+                            "Clase": nombre_clase,
+                            "Área_ha": area_ha
+                        })
+
+                except Exception as e:
+                    print(f"⚠️ Error al procesar {nombre_area}: {e}")
+                    continue
+
+    df_resultados = pd.DataFrame(resultados)
+    if df_resultados.empty:
+        print("⚠️ No se encontraron transiciones en las áreas protegidas.")
+        return
+        
+    # 🔽 Exportar CSV
+    nombre_csv = f"transiciones_{anio}.csv"
+    ruta_csv = os.path.join(carpeta_exportacion, nombre_csv)
+    df_resultados.to_csv(ruta_csv, index=False)
+    print(f"✅ CSV guardado en: {ruta_csv}")
+
+    # Guardar cada gráfico de forma independiente para cada tipo de transición
+    clases = ['Deforestación', 'Regeneración', 'Degradación']
+    tipos = ['PNN', 'Resguardos']
+
+    for tipo in tipos:
+        for clase in clases:
+            # Filtrar los datos correspondientes
+            subset = df_resultados[(df_resultados["Tipo"] == tipo) & (df_resultados["Clase"] == clase)]
+            subset = subset.sort_values("Área_ha", ascending=False).head(10)
+
+            # Crear el gráfico
+            fig, ax = plt.subplots(figsize=(10, 6))
+            ax.barh(subset["Nombre"], subset["Área_ha"], color=["#d73027", "#1a9850", "#fee08b"][clases.index(clase)])
+            ax.set_title(f"{clase} en {tipo}s - {anio}")
+            ax.set_xlabel("Área (ha)")
+            ax.set_ylabel("Nombre")
+            ax.invert_yaxis()  # Invertir el eje y para que el nombre de mayor área esté arriba
+
+            # Guardar cada gráfico independientemente
+            nombre_archivo = f"{tipo}_{clase}_{anio}.png"
+            ruta_guardado = os.path.join(carpeta_exportacion, nombre_archivo)
+            plt.tight_layout()
+
+            # Guardar la imagen
+            plt.savefig(ruta_guardado)
+            print(f"✅ Gráfica guardada en: {ruta_guardado}")
+            plt.close(fig)  # Cerrar la figura después de guardarla
+
+
+    # 🔽 Visualización de gráficos
+    fig, axes = plt.subplots(6, 1, figsize=(10, 25))  # 6 filas, 1 columna para las gráficas
+    clases = ['Deforestación', 'Regeneración', 'Degradación']
+    tipos = ['PNN', 'Resguardos']
+
+    for i, tipo in enumerate(tipos):
+        for j, clase in enumerate(clases):
+            ax = axes[i * 3 + j]
+            subset = df_resultados[(df_resultados["Tipo"] == tipo) & (df_resultados["Clase"] == clase)]
+            subset = subset.sort_values("Área_ha", ascending=False).head(10)
+            ax.barh(subset["Nombre"], subset["Área_ha"], color=["#d73027", "#1a9850", "#fee08b"][j])
+            ax.set_title(f"{clase} en {tipo} - {anio}")
+            ax.set_xlabel("Área (ha)")
+            ax.set_ylabel("Nombre")
+            ax.invert_yaxis()
+
+
+    plt.tight_layout()
+    plt.show()
+
+    
+    return df_resultados

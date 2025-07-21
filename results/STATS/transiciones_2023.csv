@@ -1,0 +1,463 @@
+Año,Tipo,Nombre,Clase,Área_ha
+2023,PNN,Cueva de los Guácharos,Deforestación,0.0
+2023,PNN,Cueva de los Guácharos,Regeneración,0.0
+2023,PNN,Cueva de los Guácharos,Degradación,2.61
+2023,PNN,Alto Fragua - Indi Wasi,Deforestación,543.6899999999999
+2023,PNN,Alto Fragua - Indi Wasi,Regeneración,101.25
+2023,PNN,Alto Fragua - Indi Wasi,Degradación,18.72
+2023,PNN,La Serranía de Chiribiquete,Deforestación,338.31
+2023,PNN,La Serranía de Chiribiquete,Regeneración,206.1
+2023,PNN,La Serranía de Chiribiquete,Degradación,600.66
+2023,PNN,Cordillera de los Picachos,Deforestación,28.349999999999998
+2023,PNN,Cordillera de los Picachos,Regeneración,18.9
+2023,PNN,Cordillera de los Picachos,Degradación,22.23
+2023,PNN,Serranía de los Churumbelos  - Auka Wasi,Deforestación,0.09
+2023,PNN,Serranía de los Churumbelos  - Auka Wasi,Regeneración,0.0
+2023,PNN,Serranía de los Churumbelos  - Auka Wasi,Degradación,0.18
+2023,PNN,San Lorenzo,Deforestación,0.0
+2023,PNN,San Lorenzo,Regeneración,0.63
+2023,PNN,San Lorenzo,Degradación,0.0
+2023,PNN,El Recreo,Deforestación,0.0
+2023,PNN,El Recreo,Regeneración,0.27
+2023,PNN,El Recreo,Degradación,0.0
+2023,PNN,La Argelia,Deforestación,2.25
+2023,PNN,La Argelia,Regeneración,0.18
+2023,PNN,La Argelia,Degradación,0.0
+2023,PNN,La Palestina,Deforestación,0.99
+2023,PNN,La Palestina,Regeneración,0.0
+2023,PNN,La Palestina,Degradación,0.0
+2023,PNN,La Estrella,Deforestación,0.0
+2023,PNN,La Estrella,Regeneración,0.0
+2023,PNN,La Estrella,Degradación,0.0
+2023,PNN,La Tebaida,Deforestación,0.54
+2023,PNN,La Tebaida,Regeneración,0.44999999999999996
+2023,PNN,La Tebaida,Degradación,0.0
+2023,PNN,El Bosque,Deforestación,1.71
+2023,PNN,El Bosque,Regeneración,0.36
+2023,PNN,El Bosque,Degradación,0.0
+2023,PNN,El Venado,Deforestación,2.07
+2023,PNN,El Venado,Regeneración,0.44999999999999996
+2023,PNN,El Venado,Degradación,0.0
+2023,PNN,Las Mesitas,Deforestación,0.0
+2023,PNN,Las Mesitas,Regeneración,1.26
+2023,PNN,Las Mesitas,Degradación,0.0
+2023,PNN,Villa Milena,Deforestación,0.0
+2023,PNN,Villa Milena,Regeneración,0.0
+2023,PNN,Villa Milena,Degradación,0.0
+2023,PNN,San Nicolás 2,Deforestación,0.0
+2023,PNN,San Nicolás 2,Regeneración,0.0
+2023,PNN,San Nicolás 2,Degradación,0.0
+2023,PNN,Siberia Ceibas,Deforestación,0.0
+2023,PNN,Siberia Ceibas,Regeneración,0.0
+2023,PNN,Siberia Ceibas,Degradación,0.0
+2023,PNN,El Billar,Deforestación,0.0
+2023,PNN,El Billar,Regeneración,0.0
+2023,PNN,El Billar,Degradación,0.0
+2023,PNN,Corredor Biológico Guácharos Puracé,Deforestación,0.0
+2023,PNN,Corredor Biológico Guácharos Puracé,Regeneración,0.0
+2023,PNN,Corredor Biológico Guácharos Puracé,Degradación,0.0
+2023,PNN,Cerro Páramo de Miraflores Rigoberto Urriago,Deforestación,0.0
+2023,PNN,Cerro Páramo de Miraflores Rigoberto Urriago,Regeneración,0.0
+2023,PNN,Cerro Páramo de Miraflores Rigoberto Urriago,Degradación,0.0
+2023,PNN,La Judea,Deforestación,4.2299999999999995
+2023,PNN,La Judea,Regeneración,0.63
+2023,PNN,La Judea,Degradación,0.0
+2023,PNN,El Arrullo,Deforestación,0.27
+2023,PNN,El Arrullo,Regeneración,1.08
+2023,PNN,El Arrullo,Degradación,0.0
+2023,PNN,El Agrado,Deforestación,1.26
+2023,PNN,El Agrado,Regeneración,0.09
+2023,PNN,El Agrado,Degradación,0.0
+2023,PNN,La Esperanza 2,Deforestación,0.27
+2023,PNN,La Esperanza 2,Regeneración,3.78
+2023,PNN,La Esperanza 2,Degradación,0.0
+2023,PNN,Reserva Natural El Arca,Deforestación,0.0
+2023,PNN,Reserva Natural El Arca,Regeneración,1.08
+2023,PNN,Reserva Natural El Arca,Degradación,0.0
+2023,PNN,La Virginia,Deforestación,0.09
+2023,PNN,La Virginia,Regeneración,0.0
+2023,PNN,La Virginia,Degradación,0.0
+2023,PNN,Hacienda Esmeraldas,Deforestación,6.4799999999999995
+2023,PNN,Hacienda Esmeraldas,Regeneración,9.0
+2023,PNN,Hacienda Esmeraldas,Degradación,0.8099999999999999
+2023,PNN,Hacienda Villa Mery,Deforestación,0.0
+2023,PNN,Hacienda Villa Mery,Regeneración,17.189999999999998
+2023,PNN,Hacienda Villa Mery,Degradación,0.0
+2023,PNN,Miraflores Picachos,Deforestación,21.96
+2023,PNN,Miraflores Picachos,Regeneración,3.15
+2023,PNN,Miraflores Picachos,Degradación,2.16
+2023,PNN,Etiopía,Deforestación,0.0
+2023,PNN,Etiopía,Regeneración,0.0
+2023,PNN,Etiopía,Degradación,0.0
+2023,PNN,El Playón y Buenos Aires,Deforestación,0.72
+2023,PNN,El Playón y Buenos Aires,Regeneración,0.18
+2023,PNN,El Playón y Buenos Aires,Degradación,0.0
+2023,PNN,El Sinú,Deforestación,0.0
+2023,PNN,El Sinú,Regeneración,0.54
+2023,PNN,El Sinú,Degradación,0.0
+2023,PNN,El Danubio,Deforestación,1.26
+2023,PNN,El Danubio,Regeneración,0.09
+2023,PNN,El Danubio,Degradación,0.0
+2023,PNN,Los Arboles De Las Mesitas,Deforestación,0.0
+2023,PNN,Los Arboles De Las Mesitas,Regeneración,5.31
+2023,PNN,Los Arboles De Las Mesitas,Degradación,0.0
+2023,PNN,La Independencia,Deforestación,0.0
+2023,PNN,La Independencia,Regeneración,0.0
+2023,PNN,La Independencia,Degradación,0.0
+2023,PNN,San Nicolás,Deforestación,0.09
+2023,PNN,San Nicolás,Regeneración,0.44999999999999996
+2023,PNN,San Nicolás,Degradación,0.0
+2023,PNN,La Vega,Deforestación,0.0
+2023,PNN,La Vega,Regeneración,0.0
+2023,PNN,La Vega,Degradación,0.09
+2023,PNN,Yalconia,Deforestación,0.36
+2023,PNN,Yalconia,Regeneración,0.27
+2023,PNN,Yalconia,Degradación,0.0
+2023,PNN,La Cristalina,Deforestación,0.0
+2023,PNN,La Cristalina,Regeneración,0.63
+2023,PNN,La Cristalina,Degradación,0.0
+2023,PNN,La Volga,Deforestación,0.0
+2023,PNN,La Volga,Regeneración,0.36
+2023,PNN,La Volga,Degradación,0.09
+2023,PNN,La Esperanza,Deforestación,0.27
+2023,PNN,La Esperanza,Regeneración,0.54
+2023,PNN,La Esperanza,Degradación,0.54
+2023,PNN,Bellavista,Deforestación,0.0
+2023,PNN,Bellavista,Regeneración,0.09
+2023,PNN,Bellavista,Degradación,0.0
+2023,PNN,La Samaria,Deforestación,0.09
+2023,PNN,La Samaria,Regeneración,0.72
+2023,PNN,La Samaria,Degradación,0.0
+2023,PNN,Santa Elena,Deforestación,0.0
+2023,PNN,Santa Elena,Regeneración,0.09
+2023,PNN,Santa Elena,Degradación,0.0
+2023,PNN,El Olivo II,Deforestación,0.0
+2023,PNN,El Olivo II,Regeneración,1.98
+2023,PNN,El Olivo II,Degradación,0.0
+2023,PNN,La Esperanza,Deforestación,0.0
+2023,PNN,La Esperanza,Regeneración,0.09
+2023,PNN,La Esperanza,Degradación,0.0
+2023,PNN,Buenos Aires,Deforestación,0.54
+2023,PNN,Buenos Aires,Regeneración,0.0
+2023,PNN,Buenos Aires,Degradación,0.0
+2023,PNN,El Olivo,Deforestación,1.7999999999999998
+2023,PNN,El Olivo,Regeneración,2.25
+2023,PNN,El Olivo,Degradación,0.0
+2023,PNN,Las Mercedes,Deforestación,0.0
+2023,PNN,Las Mercedes,Regeneración,0.09
+2023,PNN,Las Mercedes,Degradación,0.0
+2023,PNN,San Francisco,Deforestación,1.08
+2023,PNN,San Francisco,Regeneración,0.27
+2023,PNN,San Francisco,Degradación,0.0
+2023,PNN,Lorena,Deforestación,0.0
+2023,PNN,Lorena,Regeneración,0.0
+2023,PNN,Lorena,Degradación,0.0
+2023,PNN,Buenos Aires,Deforestación,0.0
+2023,PNN,Buenos Aires,Regeneración,1.26
+2023,PNN,Buenos Aires,Degradación,0.0
+2023,PNN,El Rosal,Deforestación,0.18
+2023,PNN,El Rosal,Regeneración,0.0
+2023,PNN,El Rosal,Degradación,0.0
+2023,PNN,Rancho Grande,Deforestación,0.72
+2023,PNN,Rancho Grande,Regeneración,0.0
+2023,PNN,Rancho Grande,Degradación,0.0
+2023,PNN,Colina De Montefrío,Deforestación,0.0
+2023,PNN,Colina De Montefrío,Regeneración,0.0
+2023,PNN,Colina De Montefrío,Degradación,0.0
+2023,PNN,Arcasim,Deforestación,0.0
+2023,PNN,Arcasim,Regeneración,0.0
+2023,PNN,Arcasim,Degradación,0.0
+2023,PNN,La Granada,Deforestación,0.0
+2023,PNN,La Granada,Regeneración,0.0
+2023,PNN,La Granada,Degradación,0.0
+2023,PNN,Parque Amazónico Inti Wasi,Deforestación,0.63
+2023,PNN,Parque Amazónico Inti Wasi,Regeneración,1.89
+2023,PNN,Parque Amazónico Inti Wasi,Degradación,0.0
+2023,PNN,Las Juntas,Deforestación,0.0
+2023,PNN,Las Juntas,Regeneración,7.29
+2023,PNN,Las Juntas,Degradación,0.0
+2023,PNN,Belén,Deforestación,0.0
+2023,PNN,Belén,Regeneración,0.0
+2023,PNN,Belén,Degradación,0.0
+2023,PNN,Villa Nueva- La Esmeralda,Deforestación,0.0
+2023,PNN,Villa Nueva- La Esmeralda,Regeneración,0.18
+2023,PNN,Villa Nueva- La Esmeralda,Degradación,0.0
+2023,PNN,La Esperanza 1,Deforestación,0.0
+2023,PNN,La Esperanza 1,Regeneración,0.09
+2023,PNN,La Esperanza 1,Degradación,0.0
+2023,PNN,El Silencio,Deforestación,0.0
+2023,PNN,El Silencio,Regeneración,0.09
+2023,PNN,El Silencio,Degradación,0.0
+2023,PNN,El Silencio,Deforestación,0.0
+2023,PNN,El Silencio,Regeneración,8.91
+2023,PNN,El Silencio,Degradación,0.0
+2023,PNN,La Alejandra,Deforestación,0.0
+2023,PNN,La Alejandra,Regeneración,0.0
+2023,PNN,La Alejandra,Degradación,0.0
+2023,PNN,La Ilusión,Deforestación,0.63
+2023,PNN,La Ilusión,Regeneración,1.98
+2023,PNN,La Ilusión,Degradación,0.0
+2023,PNN,El Paraíso,Deforestación,4.14
+2023,PNN,El Paraíso,Regeneración,1.3499999999999999
+2023,PNN,El Paraíso,Degradación,0.0
+2023,PNN,Mesón,Deforestación,1.08
+2023,PNN,Mesón,Regeneración,0.99
+2023,PNN,Mesón,Degradación,0.0
+2023,PNN,Patio Bonito,Deforestación,1.44
+2023,PNN,Patio Bonito,Regeneración,0.8999999999999999
+2023,PNN,Patio Bonito,Degradación,0.0
+2023,PNN,Villamar,Deforestación,1.71
+2023,PNN,Villamar,Regeneración,0.44999999999999996
+2023,PNN,Villamar,Degradación,0.09
+2023,PNN,Villa Karina,Deforestación,2.9699999999999998
+2023,PNN,Villa Karina,Regeneración,0.8999999999999999
+2023,PNN,Villa Karina,Degradación,0.0
+2023,PNN,La Prosperidad,Deforestación,0.36
+2023,PNN,La Prosperidad,Regeneración,0.0
+2023,PNN,La Prosperidad,Degradación,0.0
+2023,PNN,Las Delicias,Deforestación,0.0
+2023,PNN,Las Delicias,Regeneración,0.09
+2023,PNN,Las Delicias,Degradación,0.0
+2023,PNN,Lote,Deforestación,0.0
+2023,PNN,Lote,Regeneración,0.09
+2023,PNN,Lote,Degradación,0.0
+2023,PNN,Reserva Ambiwasi,Deforestación,0.63
+2023,PNN,Reserva Ambiwasi,Regeneración,0.0
+2023,PNN,Reserva Ambiwasi,Degradación,0.0
+2023,PNN,La Esperanza,Deforestación,0.0
+2023,PNN,La Esperanza,Regeneración,0.09
+2023,PNN,La Esperanza,Degradación,0.0
+2023,PNN,Bella Vista,Deforestación,0.0
+2023,PNN,Bella Vista,Regeneración,0.09
+2023,PNN,Bella Vista,Degradación,0.0
+2023,PNN,La Cumbre,Deforestación,0.09
+2023,PNN,La Cumbre,Regeneración,0.18
+2023,PNN,La Cumbre,Degradación,0.0
+2023,PNN,La Argentina,Deforestación,0.0
+2023,PNN,La Argentina,Regeneración,0.09
+2023,PNN,La Argentina,Degradación,0.0
+2023,PNN,El Paraíso,Deforestación,0.0
+2023,PNN,El Paraíso,Regeneración,0.0
+2023,PNN,El Paraíso,Degradación,0.0
+2023,PNN,Santa Catalina,Deforestación,0.27
+2023,PNN,Santa Catalina,Regeneración,0.0
+2023,PNN,Santa Catalina,Degradación,0.0
+2023,PNN,Reserva Buenavista,Deforestación,0.0
+2023,PNN,Reserva Buenavista,Regeneración,0.0
+2023,PNN,Reserva Buenavista,Degradación,0.0
+2023,PNN,Santa Rosa,Deforestación,0.0
+2023,PNN,Santa Rosa,Regeneración,0.0
+2023,PNN,Santa Rosa,Degradación,0.0
+2023,PNN,Bélgica,Deforestación,0.99
+2023,PNN,Bélgica,Regeneración,1.6199999999999999
+2023,PNN,Bélgica,Degradación,0.0
+2023,PNN,El Triunfo,Deforestación,0.09
+2023,PNN,El Triunfo,Regeneración,0.36
+2023,PNN,El Triunfo,Degradación,0.0
+2023,PNN,Villa Camila,Deforestación,0.0
+2023,PNN,Villa Camila,Regeneración,0.36
+2023,PNN,Villa Camila,Degradación,0.0
+2023,PNN,Las Margaritas,Deforestación,0.09
+2023,PNN,Las Margaritas,Regeneración,1.3499999999999999
+2023,PNN,Las Margaritas,Degradación,0.0
+2023,PNN,La Albania,Deforestación,4.68
+2023,PNN,La Albania,Regeneración,0.0
+2023,PNN,La Albania,Degradación,0.0
+2023,PNN,La Nueva Esperanza,Deforestación,0.0
+2023,PNN,La Nueva Esperanza,Regeneración,0.0
+2023,PNN,La Nueva Esperanza,Degradación,0.0
+2023,PNN,El Diviso,Deforestación,0.0
+2023,PNN,El Diviso,Regeneración,0.0
+2023,PNN,El Diviso,Degradación,0.0
+2023,PNN,EL Danubio,Deforestación,0.0
+2023,PNN,EL Danubio,Regeneración,0.0
+2023,PNN,EL Danubio,Degradación,0.0
+2023,PNN,Baranoa,Deforestación,0.18
+2023,PNN,Baranoa,Regeneración,0.27
+2023,PNN,Baranoa,Degradación,0.0
+2023,PNN,El Mirador,Deforestación,0.18
+2023,PNN,El Mirador,Regeneración,0.27
+2023,PNN,El Mirador,Degradación,0.0
+2023,PNN,El Hebrón,Deforestación,0.0
+2023,PNN,El Hebrón,Regeneración,0.18
+2023,PNN,El Hebrón,Degradación,0.0
+2023,PNN,El Paraíso,Deforestación,1.3499999999999999
+2023,PNN,El Paraíso,Regeneración,1.26
+2023,PNN,El Paraíso,Degradación,0.0
+2023,PNN,Islandia,Deforestación,0.0
+2023,PNN,Islandia,Regeneración,1.6199999999999999
+2023,PNN,Islandia,Degradación,0.0
+2023,PNN,La Suiza,Deforestación,0.0
+2023,PNN,La Suiza,Regeneración,0.0
+2023,PNN,La Suiza,Degradación,0.0
+2023,PNN,Las Mercedes,Deforestación,5.67
+2023,PNN,Las Mercedes,Regeneración,0.09
+2023,PNN,Las Mercedes,Degradación,0.0
+2023,PNN,La Esperanza,Deforestación,0.54
+2023,PNN,La Esperanza,Regeneración,0.54
+2023,PNN,La Esperanza,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Coreguaje de Maticurú,Deforestación,1.08
+2023,Resguardos,Resguardo Indígena Coreguaje de Maticurú,Regeneración,2.07
+2023,Resguardos,Resguardo Indígena Coreguaje de Maticurú,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Huitoto - El Quince,Deforestación,5.22
+2023,Resguardos,Resguardo Indígena Huitoto - El Quince,Regeneración,8.28
+2023,Resguardos,Resguardo Indígena Huitoto - El Quince,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Embera Katio El Cedrito,Deforestación,0.0
+2023,Resguardos,Resguardo Indígena Embera Katio El Cedrito,Regeneración,0.27
+2023,Resguardos,Resguardo Indígena Embera Katio El Cedrito,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Paez de La Esperanza,Deforestación,28.169999999999998
+2023,Resguardos,Resguardo Indígena Paez de La Esperanza,Regeneración,14.85
+2023,Resguardos,Resguardo Indígena Paez de La Esperanza,Degradación,0.0
+2023,Resguardos,Resguardo Indígena inga de San Antonio Del Fragua,Deforestación,35.82
+2023,Resguardos,Resguardo Indígena inga de San Antonio Del Fragua,Regeneración,0.54
+2023,Resguardos,Resguardo Indígena inga de San Antonio Del Fragua,Degradación,1.3499999999999999
+2023,Resguardos,Resguardo Indígena Coreguaje de San Miguel,Deforestación,0.09
+2023,Resguardos,Resguardo Indígena Coreguaje de San Miguel,Regeneración,0.63
+2023,Resguardos,Resguardo Indígena Coreguaje de San Miguel,Degradación,0.27
+2023,Resguardos,Resguardo Indígena El Aguila,Deforestación,13.59
+2023,Resguardos,Resguardo Indígena El Aguila,Regeneración,1.17
+2023,Resguardos,Resguardo Indígena El Aguila,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Embera-Katio La Cerinda,Deforestación,0.36
+2023,Resguardos,Resguardo Indígena Embera-Katio La Cerinda,Regeneración,0.8099999999999999
+2023,Resguardos,Resguardo Indígena Embera-Katio La Cerinda,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Paez Altamira,Deforestación,77.39999999999999
+2023,Resguardos,Resguardo Indígena Paez Altamira,Regeneración,82.98
+2023,Resguardos,Resguardo Indígena Paez Altamira,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Inga de San Rafael,Deforestación,0.0
+2023,Resguardos,Resguardo Indígena Inga de San Rafael,Regeneración,0.0
+2023,Resguardos,Resguardo Indígena Inga de San Rafael,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Coreguaje de El Triunfo,Deforestación,1.7999999999999998
+2023,Resguardos,Resguardo Indígena Coreguaje de El Triunfo,Regeneración,0.09
+2023,Resguardos,Resguardo Indígena Coreguaje de El Triunfo,Degradación,0.18
+2023,Resguardos,Resguardo Indígena Paez del Portal,Deforestación,13.95
+2023,Resguardos,Resguardo Indígena Paez del Portal,Regeneración,1.17
+2023,Resguardos,Resguardo Indígena Paez del Portal,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Paez El Guayabal,Deforestación,1.3499999999999999
+2023,Resguardos,Resguardo Indígena Paez El Guayabal,Regeneración,0.44999999999999996
+2023,Resguardos,Resguardo Indígena Paez El Guayabal,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Coreguaje de El Porvenir Kananguchal,Deforestación,0.0
+2023,Resguardos,Resguardo Indígena Coreguaje de El Porvenir Kananguchal,Regeneración,0.0
+2023,Resguardos,Resguardo Indígena Coreguaje de El Porvenir Kananguchal,Degradación,1.53
+2023,Resguardos,Resguardo Indígena Murui - Witoto de Aguas Negras,Deforestación,97.47
+2023,Resguardos,Resguardo Indígena Murui - Witoto de Aguas Negras,Regeneración,6.029999999999999
+2023,Resguardos,Resguardo Indígena Murui - Witoto de Aguas Negras,Degradación,3.96
+2023,Resguardos,Resguardo Indígena Coreguaje de Getucha,Deforestación,0.18
+2023,Resguardos,Resguardo Indígena Coreguaje de Getucha,Regeneración,1.44
+2023,Resguardos,Resguardo Indígena Coreguaje de Getucha,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Paez de La Siberia,Deforestación,1.08
+2023,Resguardos,Resguardo Indígena Paez de La Siberia,Regeneración,3.5999999999999996
+2023,Resguardos,Resguardo Indígena Paez de La Siberia,Degradación,0.8099999999999999
+2023,Resguardos,"Resguardo Indígena Witoto de Amenanae (Charco del Niño Dios)
+Witoto de Mesai (Nombre Nuevo)",Deforestación,2.61
+2023,Resguardos,"Resguardo Indígena Witoto de Amenanae (Charco del Niño Dios)
+Witoto de Mesai (Nombre Nuevo)",Regeneración,0.36
+2023,Resguardos,"Resguardo Indígena Witoto de Amenanae (Charco del Niño Dios)
+Witoto de Mesai (Nombre Nuevo)",Degradación,0.18
+2023,Resguardos,Resguardo Indígena La Victoria,Deforestación,14.309999999999999
+2023,Resguardos,Resguardo Indígena La Victoria,Regeneración,42.57
+2023,Resguardos,Resguardo Indígena La Victoria,Degradación,1.08
+2023,Resguardos,Resguardo Indígena de Cusumbe - Agua Blanca,Deforestación,8.459999999999999
+2023,Resguardos,Resguardo Indígena de Cusumbe - Agua Blanca,Regeneración,0.99
+2023,Resguardos,Resguardo Indígena de Cusumbe - Agua Blanca,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Nasa We' Sx Kiwe La Gaitana,Deforestación,4.14
+2023,Resguardos,Resguardo Indígena Nasa We' Sx Kiwe La Gaitana,Regeneración,1.71
+2023,Resguardos,Resguardo Indígena Nasa We' Sx Kiwe La Gaitana,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Embera Katio de San Pablo El Para,Deforestación,13.68
+2023,Resguardos,Resguardo Indígena Embera Katio de San Pablo El Para,Regeneración,1.44
+2023,Resguardos,Resguardo Indígena Embera Katio de San Pablo El Para,Degradación,0.0
+2023,Resguardos,"Resguardo Indígena Pijao, Tucano y Piratapuyo Llanos Del Yari - Yaguara II",Deforestación,13.32
+2023,Resguardos,"Resguardo Indígena Pijao, Tucano y Piratapuyo Llanos Del Yari - Yaguara II",Regeneración,13.95
+2023,Resguardos,"Resguardo Indígena Pijao, Tucano y Piratapuyo Llanos Del Yari - Yaguara II",Degradación,3.69
+2023,Resguardos,Resguardo Indígena Pijao de Los Pijaos,Deforestación,2.34
+2023,Resguardos,Resguardo Indígena Pijao de Los Pijaos,Regeneración,0.0
+2023,Resguardos,Resguardo Indígena Pijao de Los Pijaos,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Embera Chami La Libertad 2,Deforestación,23.04
+2023,Resguardos,Resguardo Indígena Embera Chami La Libertad 2,Regeneración,12.15
+2023,Resguardos,Resguardo Indígena Embera Chami La Libertad 2,Degradación,0.54
+2023,Resguardos,Resguardo Indígena Nasa Banderas del Recaibo,Deforestación,18.99
+2023,Resguardos,Resguardo Indígena Nasa Banderas del Recaibo,Regeneración,0.8999999999999999
+2023,Resguardos,Resguardo Indígena Nasa Banderas del Recaibo,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Inga De Niñeras,Deforestación,23.13
+2023,Resguardos,Resguardo Indígena Inga De Niñeras,Regeneración,1.53
+2023,Resguardos,Resguardo Indígena Inga De Niñeras,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Paez de el Libano,Deforestación,1.53
+2023,Resguardos,Resguardo Indígena Paez de el Libano,Regeneración,0.09
+2023,Resguardos,Resguardo Indígena Paez de el Libano,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Paez de Zit-Set Del Quecal,Deforestación,38.07
+2023,Resguardos,Resguardo Indígena Paez de Zit-Set Del Quecal,Regeneración,6.12
+2023,Resguardos,Resguardo Indígena Paez de Zit-Set Del Quecal,Degradación,0.0
+2023,Resguardos,Witack Kiwe,Deforestación,2.34
+2023,Resguardos,Witack Kiwe,Regeneración,0.8099999999999999
+2023,Resguardos,Witack Kiwe,Degradación,0.0
+2023,Resguardos,Resguardo Indígena de los Rios Miriti Parana (La Pedrera),Deforestación,0.0
+2023,Resguardos,Resguardo Indígena de los Rios Miriti Parana (La Pedrera),Regeneración,0.0
+2023,Resguardos,Resguardo Indígena de los Rios Miriti Parana (La Pedrera),Degradación,0.0
+2023,Resguardos,Resguardo Indígena San Luis,Deforestación,29.52
+2023,Resguardos,Resguardo Indígena San Luis,Regeneración,2.88
+2023,Resguardos,Resguardo Indígena San Luis,Degradación,2.16
+2023,Resguardos,Resguardo Indígena Nonuya de Villazul,Deforestación,0.0
+2023,Resguardos,Resguardo Indígena Nonuya de Villazul,Regeneración,0.0
+2023,Resguardos,Resguardo Indígena Nonuya de Villazul,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Paez de Nasa Kiwe,Deforestación,0.8999999999999999
+2023,Resguardos,Resguardo Indígena Paez de Nasa Kiwe,Regeneración,0.18
+2023,Resguardos,Resguardo Indígena Paez de Nasa Kiwe,Degradación,0.09
+2023,Resguardos,Resguardo Indígena Coreguaje de Aguanegra,Deforestación,18.54
+2023,Resguardos,Resguardo Indígena Coreguaje de Aguanegra,Regeneración,6.75
+2023,Resguardos,Resguardo Indígena Coreguaje de Aguanegra,Degradación,0.8099999999999999
+2023,Resguardos,Resguardo Indígena Inga de Las Brisas,Deforestación,11.61
+2023,Resguardos,Resguardo Indígena Inga de Las Brisas,Regeneración,0.27
+2023,Resguardos,Resguardo Indígena Inga de Las Brisas,Degradación,0.18
+2023,Resguardos,Resguardo Indígena Witoto del Paraje Monochoa,Deforestación,84.50999999999999
+2023,Resguardos,Resguardo Indígena Witoto del Paraje Monochoa,Regeneración,38.699999999999996
+2023,Resguardos,Resguardo Indígena Witoto del Paraje Monochoa,Degradación,182.51999999999998
+2023,Resguardos,Resguardo Indígena Inga de Yurayaco,Deforestación,72.99
+2023,Resguardos,Resguardo Indígena Inga de Yurayaco,Regeneración,7.109999999999999
+2023,Resguardos,Resguardo Indígena Inga de Yurayaco,Degradación,0.0
+2023,Resguardos,"Resguardo Indígena Coreguaje Asentada en la Regiones De Puerto Naranjo, Peñas Rojas, Cuerazo, El Diamante",Deforestación,41.22
+2023,Resguardos,"Resguardo Indígena Coreguaje Asentada en la Regiones De Puerto Naranjo, Peñas Rojas, Cuerazo, El Diamante",Regeneración,4.05
+2023,Resguardos,"Resguardo Indígena Coreguaje Asentada en la Regiones De Puerto Naranjo, Peñas Rojas, Cuerazo, El Diamante",Degradación,2.6999999999999997
+2023,Resguardos,Resguardo Indígena Inga De San Miguel,Deforestación,76.14
+2023,Resguardos,Resguardo Indígena Inga De San Miguel,Regeneración,2.4299999999999997
+2023,Resguardos,Resguardo Indígena Inga De San Miguel,Degradación,0.99
+2023,Resguardos,Resguardo Indígena Witoto del paraje de Puerto Zabalo y Los Monos,Deforestación,152.01
+2023,Resguardos,Resguardo Indígena Witoto del paraje de Puerto Zabalo y Los Monos,Regeneración,105.11999999999999
+2023,Resguardos,Resguardo Indígena Witoto del paraje de Puerto Zabalo y Los Monos,Degradación,89.82
+2023,Resguardos,Resguardo Indígena Andoke Del Paraje De Aduche,Deforestación,46.53
+2023,Resguardos,Resguardo Indígena Andoke Del Paraje De Aduche,Regeneración,23.669999999999998
+2023,Resguardos,Resguardo Indígena Andoke Del Paraje De Aduche,Degradación,6.66
+2023,Resguardos,Resguardo Indígena Coreguaje de Hericha,Deforestación,13.32
+2023,Resguardos,Resguardo Indígena Coreguaje de Hericha,Regeneración,1.53
+2023,Resguardos,Resguardo Indígena Coreguaje de Hericha,Degradación,3.42
+2023,Resguardos,Resguardo Indígena Coreguaje de Gorgonia,Deforestación,1.89
+2023,Resguardos,Resguardo Indígena Coreguaje de Gorgonia,Regeneración,5.22
+2023,Resguardos,Resguardo Indígena Coreguaje de Gorgonia,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Embera-Katio de Honduras,Deforestación,7.83
+2023,Resguardos,Resguardo Indígena Embera-Katio de Honduras,Regeneración,14.04
+2023,Resguardos,Resguardo Indígena Embera-Katio de Honduras,Degradación,0.09
+2023,Resguardos,Resguardo Indígena Huitoto - Paraje de Witora O Huitora,Deforestación,27.9
+2023,Resguardos,Resguardo Indígena Huitoto - Paraje de Witora O Huitora,Regeneración,8.01
+2023,Resguardos,Resguardo Indígena Huitoto - Paraje de Witora O Huitora,Degradación,23.669999999999998
+2023,Resguardos,Resguardo Indígena Coreguaje de Jerico-Consaya,Deforestación,39.6
+2023,Resguardos,Resguardo Indígena Coreguaje de Jerico-Consaya,Regeneración,6.4799999999999995
+2023,Resguardos,Resguardo Indígena Coreguaje de Jerico-Consaya,Degradación,1.44
+2023,Resguardos,Resguardo Indígena Huitoto de Coropoya,Deforestación,13.95
+2023,Resguardos,Resguardo Indígena Huitoto de Coropoya,Regeneración,3.2399999999999998
+2023,Resguardos,Resguardo Indígena Huitoto de Coropoya,Degradación,33.39
+2023,Resguardos,Resguardo Indígena de Coreguaje de la Esperanza,Deforestación,6.569999999999999
+2023,Resguardos,Resguardo Indígena de Coreguaje de la Esperanza,Regeneración,0.72
+2023,Resguardos,Resguardo Indígena de Coreguaje de la Esperanza,Degradación,0.63
+2023,Resguardos,Resguardo Indígena Vaupes,Deforestación,0.0
+2023,Resguardos,Resguardo Indígena Vaupes,Regeneración,0.0
+2023,Resguardos,Resguardo Indígena Vaupes,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Coreguaje de Jacome,Deforestación,17.37
+2023,Resguardos,Resguardo Indígena Coreguaje de Jacome,Regeneración,1.17
+2023,Resguardos,Resguardo Indígena Coreguaje de Jacome,Degradación,0.0
+2023,Resguardos,Resguardo Indígena Coreguaje de La Teofila,Deforestación,14.76
+2023,Resguardos,Resguardo Indígena Coreguaje de La Teofila,Regeneración,0.36
+2023,Resguardos,Resguardo Indígena Coreguaje de La Teofila,Degradación,1.08
+2023,Resguardos,Resguardo Embera Drua,Deforestación,0.36
+2023,Resguardos,Resguardo Embera Drua,Regeneración,0.18
+2023,Resguardos,Resguardo Embera Drua,Degradación,0.0
+2023,Resguardos,Resguardo Indigena Nueva Betania del pueblo Makaguaje,Deforestación,1.7999999999999998
+2023,Resguardos,Resguardo Indigena Nueva Betania del pueblo Makaguaje,Regeneración,0.0
+2023,Resguardos,Resguardo Indigena Nueva Betania del pueblo Makaguaje,Degradación,0.0
