@@ -1,8 +1,20 @@
-import geopandas as gpd
-import os
-import ee
-import rasterio 
-import numpy as np
+# Librerías para manipulación y análisis geoespacial
+import geopandas as gpd   #Manejo de datos geoespaciales
+import rasterio           #Trabajar con imágenes ráster
+import ee                 #Usar Google Earth Engine
+import numpy as np        #Operaciones con matrices y arrays numéricos
+
+# Librerías para visualización
+import matplotlib.pyplot as plt  #Crear gráficos y visualizar datos
+import matplotlib.patches as mpatches #Crear objetos gráficos: 
+from matplotlib.colors import ListedColormap #Definir y manejar con paletas de colores personalizadas
+
+# Librerías para manejo de tipos y listas
+from typing import List #Especificar listas de tipos específicos (cadenas de texto)
+
+# Librerías para manejo de archivos y rutas
+import os  #Interactuar con el sistema de archivos (rutas)
+
 
 # Autenticación en Google Earth Engine
 def authenticate_earth_engine():
@@ -178,8 +190,10 @@ def reproject_layers(Departamento, resguardos_dpto, parques_dpto):
     """
     Reproyecta las capas geoespaciales a EPSG:4326 (MAGNA-SIRGAS).
     """
+    # Definir el sistema de referencia de destino: EPSG:4326 
     crs_4326 = "EPSG:4326"
 
+    # Reproyectar cada capa al nuevo sistema de coordenadas
     dpto_4326 = Departamento.to_crs(crs_4326)
     resguardos_dpto_4326 = resguardos_dpto.to_crs(crs_4326)
     parques_dpto_4326 = parques_dpto.to_crs(crs_4326)
@@ -202,21 +216,26 @@ def save_layers(dpto_4326, resguardos_dpto_4326, parques_dpto_4326, carpeta):
     """
     Guarda las capas recortadas y reproyectadas en formato .gpkg.
     """
-        
+    # Crear la carpeta si no existe para evitar errores
+    os.makedirs(root_salidas, exist_ok=True)
+    
+    # Exportar el GeoDataFrame del departamento, resguardos y parques al formato GeoPackage    
     dpto_4326.to_file(os.path.join(root_salidas, "dpto_4326.gpkg"), driver="GPKG")
     resguardos_dpto_4326.to_file(os.path.join(root_salidas, "resguardos_dpto_4326.gpkg"), driver="GPKG")
     parques_dpto_4326.to_file(os.path.join(root_salidas, "parques_dpto_4326.gpkg"), driver="GPKG")
         
     print("✅ Capas guardadas correctamente en:", root_salidas)
 
+
+
 # Guardar las capas recortadas y reproyectadas como archivos GPKG
 def clip_raster_to_region(dpto_4326):
 
     #--- Convertir dpto_4326, resguardos_dpto_4326, parques_dpto_4326 geometry al formato de Earth Engine ---
     
-    dpto_geom = dpto_4326.geometry.iloc[0]                   # Extract the polygon geometry
-    dpto_coords = dpto_geom.__geo_interface__       # Convert to GeoJSON format
-    dpto_ee = ee.Geometry(dpto_coords)              # Convert to Earth Engine Geometry
+    dpto_geom = dpto_4326.geometry.iloc[0]          # Extrae la geometria del poligono
+    dpto_coords = dpto_geom.__geo_interface__       # Convierte a formato GeoJSON
+    dpto_ee = ee.Geometry(dpto_coords)              # Convierte a   Earth Engine Geometry
     
     # --  Cargar las coberturas y recortar al departamento ---
     
@@ -229,6 +248,8 @@ def clip_raster_to_region(dpto_4326):
     print("✅ Capas  convertidas correctamente")
 
     return cober_clipped
+
+
 
 # Exportar capas recortadas al Google Drive
 def exportar_bandas_mapbiomas(cober_clipped, dpto_4326):

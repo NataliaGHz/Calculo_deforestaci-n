@@ -1,6 +1,21 @@
-import os
-import rasterio 
-import numpy as np
+# Librerías para manipulación y análisis geoespacial
+import geopandas as gpd   #Manejo de datos geoespaciales
+import rasterio           #Trabajar con imágenes ráster
+import ee                 #Usar Google Earth Engine
+import numpy as np        #Operaciones con matrices y arrays numéricos
+
+# Librerías para visualización
+import matplotlib.pyplot as plt  #Crear gráficos y visualizar datos
+import matplotlib.patches as mpatches #Crear objetos gráficos
+from matplotlib.colors import ListedColormap #Definir y manejar con paletas de colores personalizadas
+
+# Librerías para manejo de tipos y listas
+from typing import List #Especificar listas de tipos específicos (cadenas de texto)
+
+# Librerías para manejo de archivos y rutas
+import os  #Interactuar con el sistema de archivos (rutas)
+
+
 
 def verificar_acceso_archivo(carpeta_imagenes):
     try:
