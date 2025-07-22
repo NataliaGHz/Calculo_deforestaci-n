@@ -196,7 +196,7 @@ def visualizar_reclass(ruta_salida, anios, anio_inicial):
     """
     # Paso 1 Definición de la paleta de colores (RGBA)
     #    índice 0: transparente; 1: bosque; 2: natural no forestal; 3: uso antrópico
-        colores = [ (0, 0, 0, 0),                      # 0: transparente (usado como fondo)
+    colores = [ (0, 0, 0, 0),                      # 0: transparente (usado como fondo)
                 (51/255, 102/255, 0/255, 1),       # 1: Bosque (verde)
                 (204/255, 204/255, 0/255, 1),      # 2: No forestal (amarillo)
                 (153/255, 0/255, 0/255, 1) ]       # 3: Antrópico (vinotinto)
@@ -291,57 +291,78 @@ def visualizar_transiciones(
             plt.tight_layout()
             plt.show()
 
-def visualizar_transiciones(
-    carpeta_tifs,
-    anio_desde,
-    anio_hasta,
-    ruta_shapefile_departamento=None
-):
-    # Leer shapefile si se proporciona
-    gdf_departamento = gpd.read_file(ruta_shapefile_departamento) if ruta_shapefile_departamento else None
+def analizar_transiciones_y_exportar(carpeta_tifs, carpeta_destino, pixel_area_ha=0.09):
+    """
+    Procesa rásteres de transiciones anuales con clases 1 (deforestación), 2 (regeneración), 3 (degradación),
+    genera gráfico y guarda CSV con resultados anuales.
 
-    # Buscar archivos que cumplan con el rango
-    archivos = sorted(glob.glob(os.path.join(carpeta_tifs, "*.tif")))
-    archivos_filtrados = [
-        f for f in archivos
-        if f"{anio_desde}" in f or any(f"{a}" in f for a in range(anio_desde, anio_hasta))
-    ]
+    Parámetros:
+    - carpeta_tifs: ruta donde están los rásteres de transición
+    - carpeta_destino: ruta donde se guardarán el gráfico y el CSV
+    - pixel_area_ha: área en hectáreas por píxel (por defecto 0.09 ha)
+    """
+    datos = {}
 
-    if not archivos_filtrados:
-        print("⚠️ No se encontraron archivos que coincidan con los años especificados.")
-        return
+    for archivo in os.listdir(carpeta_tifs):
+        if archivo.endswith(".tif") and "transicion" in archivo.lower():
+            ruta = os.path.join(carpeta_tifs, archivo)
 
-    for ruta_tif in archivos_filtrados:
-        nombre_archivo = os.path.basename(ruta_tif).replace(".tif", "")
-        with rasterio.open(ruta_tif) as src:
-            fig, ax = plt.subplots(figsize=(10, 8))
-            
+            # Extraer año destino desde el nombre del archivo
+            partes = archivo.replace(".tif", "").split("_")
+            try:
+                anio_destino = int(partes[-1])
+            except ValueError:
+                print(f"⚠️ No se pudo extraer el año de: {archivo}")
+                continue
 
-            # Crear colormap personalizado para clases 0–4
-            from matplotlib.colors import ListedColormap
-            colores = ['#ffffff','#e41a1c', '#4daf4a', '#ff7f00']
-            cmap_clases = ListedColormap(colores)
+            with rasterio.open(ruta) as src:
+                array = src.read(1)
+                array = array[array != src.nodata]
 
-            # Mostrar raster con los colores definidos
-            imagen = show(src, ax=ax, cmap=cmap_clases, title=nombre_archivo)
+                for clase in [1, 2, 3]:
+                    conteo = np.sum(array == clase)
+                    area = conteo * pixel_area_ha
 
-            # Añadir shapefile si aplica
-            if gdf_departamento is not None:
-               gdf_departamento.boundary.plot(ax=ax, edgecolor='red', linewidth=1)
+                    if anio_destino not in datos:
+                        datos[anio_destino] = {"Deforestación": 0, "Regeneración": 0, "Degradación": 0}
 
-            # Crear leyenda simple por valores únicos
-            array = src.read(1)
-            unique = sorted(set(array.flatten()) - {src.nodata})
-            colores = ['#ffffff', '#e41a1c', '#4daf4a', '#ff7f00', '#999999']
-            etiquetas = [str(int(u)) for u in unique]
+                    if clase == 1:
+                        datos[anio_destino]["Deforestación"] += area
+                    elif clase == 2:
+                        datos[anio_destino]["Regeneración"] += area
+                    elif clase == 3:
+                        datos[anio_destino]["Degradación"] += area
 
-            # Generar leyenda
-            from matplotlib.patches import Patch
-            leyenda_patches = [Patch(color=colores[i], label=etiquetas[i]) for i in range(len(unique))]
-            plt.legend(handles=leyenda_patches, title="Clases", bbox_to_anchor=(1.05, 1), loc='upper left')
-            plt.tight_layout()
-            plt.show()
+    # Crear DataFrame
+    df = pd.DataFrame.from_dict(datos, orient='index')
+    df.index.name = 'Año'
+    df = df.sort_index()
 
+    # Exportar CSV
+    os.makedirs(carpeta_destino, exist_ok=True)
+    path_csv = os.path.join(carpeta_destino, "resumen_transiciones.csv")
+    df.to_csv(path_csv, index=True)
+
+    # Graficar
+    colores = {"Deforestación": "red", "Regeneración": "green", "Degradación": "orange"}
+    plt.figure(figsize=(10, 6))
+    for clase in df.columns:
+        plt.plot(df.index, df[clase], marker='o', label=clase, color=colores[clase])
+
+    plt.xlabel("Año")
+    plt.ylabel("Área (ha)")
+    plt.title("Cambios anuales por clase")
+    plt.xticks(df.index)
+    plt.grid(True)
+    plt.legend()
+    plt.tight_layout()
+
+    path_img = os.path.join(carpeta_destino, "grafico_transiciones.png")
+    plt.savefig(path_img, dpi=300)
+    plt.show()
+
+    print(f"✅ CSV guardado en: {path_csv}")
+    print(f"✅ Gráfico guardado en: {path_img}")
 
 def graficar_transiciones_por_area_protegida_beta(
     carpeta_tifs,
