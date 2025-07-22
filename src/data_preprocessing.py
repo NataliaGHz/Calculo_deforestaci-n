@@ -206,7 +206,6 @@ def save_layers(dpto_4326, resguardos_dpto_4326, parques_dpto_4326, carpeta):
     """
     Guarda las capas recortadas y reproyectadas en formato .gpkg.
     """
-    os.makedirs(root_salidas, exist_ok=True)
         
     dpto_4326.to_file(os.path.join(root_salidas, "dpto_4326.gpkg"), driver="GPKG")
     resguardos_dpto_4326.to_file(os.path.join(root_salidas, "resguardos_dpto_4326.gpkg"), driver="GPKG")
@@ -243,7 +242,7 @@ def exportar_bandas_mapbiomas(cober_clipped, dpto_4326):
 
     Parámetros:
     - cober_clipped: ee.Image ya recortada al área de Caquetá
-    - caqueta_4326: GeoDataFrame que contiene la geometría de Caquetá en EPSG:4326
+    - cober_4326: GeoDataFrame que contiene la geometría de Caquetá en EPSG:4326
     """
 
     # --- Paso 1: Entrada del usuario (rango de años) ---
@@ -284,50 +283,3 @@ def exportar_bandas_mapbiomas(cober_clipped, dpto_4326):
     )
     task.start()
     print(f"🚀 Exportación iniciada: {nombre_salida}. Revisa la pestaña 'Tasks' en Earth Engine.")
-
-
-def exportar_bandas_mapbiomas_por_anio(cober_clipped, dpto_4326):
-    """
-    Solicita al usuario los años de interés, y exporta cada banda correspondiente
-    desde una imagen MapBiomas recortada como un archivo independiente por año.
-
-    Parámetros:
-    - cober_clipped: ee.Image ya recortada al área del departamento
-    - dpto_4326: GeoDataFrame que contiene la geometría del departamento en EPSG:4326
-    """
-
-    import ee
-    ee.Initialize()
-
-    # --- Paso 1: Entrada del usuario ---
-    entrada = input("📅 Ingrese los años de interés separados por comas (ej: 2005,2010,2020): ")
-    anios_usuario = [anio.strip() for anio in entrada.split(',')]
-
-    if len(anios_usuario) < 1:
-        raise ValueError("⚠️ Debes ingresar al menos un año válido.")
-
-    # --- Paso 2: Preparar geometría para exportación ---
-    dpto_geom = dpto_4326.geometry.iloc[0]
-    dpto_coords = dpto_geom.__geo_interface__
-    region_export = ee.Geometry(dpto_coords)
-
-    # --- Paso 3: Exportar cada año individualmente ---
-    for anio in anios_usuario:
-        banda = f'classification_{anio}'
-        imagen_banda = cober_clipped.select(banda)
-
-        nombre_salida = f"mapbiomas_dpto_{anio}"
-
-        task = ee.batch.Export.image.toDrive(
-            image=imagen_banda,
-            description=f'Export_{banda}',
-            folder='earthengine',
-            fileNamePrefix=nombre_salida,
-            region=region_export,
-            scale=30,
-            maxPixels=1e13,
-            fileFormat='GeoTIFF'
-        )
-        task.start()
-        print(f"🚀 Exportación iniciada para el año {anio}. Revisa la pestaña 'Tasks' en Earth Engine.")
-
