@@ -7,7 +7,6 @@ import matplotlib.patches as mpatches
 from matplotlib.colors import ListedColormap
 from typing import List
 import numpy as np
-import matplotlib.patches as mpatches
 
 # Autenticación en Google Earth Engine
 def authenticate_earth_engine():
