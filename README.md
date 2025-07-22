@@ -151,9 +151,9 @@ Con la información obtenida del procesamiento de datos, se pueden generar diver
 Calcular las estadísticas relacionadas con las transiciones de cobertura del suelo a nivel anual y sectorial. 
 
 Utilizando las capas de deforestación, regeneración y degradación generadas en el paso anterior, se cuantifican las áreas afectadas por cada proceso en cada año y sector específico:
--Áreas protegidas. 
--Territorios indígenas. 
-- Departamentos
+- Áreas protegidas. 
+- Territorios indígenas. 
+- Departamento analizado
 
 # Built con
 * [Google Earth Engine]([https://maven.apache.org/](https://colombia.mapbiomas.org/segunda-coleccion-de-mapbiomas-colombia/)) - Organización Mapbiomas Colombia 
