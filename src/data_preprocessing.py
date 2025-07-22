@@ -2,10 +2,6 @@ import geopandas as gpd
 import os
 import ee
 import rasterio 
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-from matplotlib.colors import ListedColormap
-from typing import List
 import numpy as np
 
 # Autenticación en Google Earth Engine
