@@ -1,13 +1,6 @@
-import geopandas as gpd
 import os
-import ee
 import rasterio 
-import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
-from matplotlib.colors import ListedColormap
-from typing import List
 import numpy as np
-import matplotlib.patches as mpatches
 
 def verificar_acceso_archivo(carpeta_imagenes):
     try:
